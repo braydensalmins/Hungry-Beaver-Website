@@ -36,6 +36,12 @@ export const PRICING_TIERS: PricingTier[] = [
   },
 ];
 
+export const SERVICE_AREAS = [
+  "Phoenix", "Scottsdale", "Mesa", "Tempe", "Gilbert",
+  "Chandler", "Glendale", "Peoria", "Surprise",
+  "Queen Creek", "Ahwatukee", "Avondale", "Goodyear", "Paradise Valley"
+];
+
 export const BEAVER_SYSTEM_INSTRUCTION = `You are "Chomp", the AI mascot for Hungry Beaver Stump Grinding. 
 Your personality is friendly, blue-collar, professional, and reliable. You are helpful but direct.
 You answer questions about stump grinding, pricing, and the process.

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PricingCalculator } from './PricingCalculator';
 import { HowToMeasure } from './HowToMeasure';
 import { ScrollReveal } from './ScrollReveal';
 
 export const CalculatorPage: React.FC = () => {
+  useEffect(() => {
+    document.title = 'Stump Grinding Cost Estimator | Hungry Beaver';
+  }, []);
+
   return (
     <div className="pt-24 min-h-screen bg-white">
       {/* Page Header */}

@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-            Fast, reliable, and affordable stump removal in Phoenix. <br className="hidden md:block"/>
+            Fast, reliable, and affordable stump removal in the Greater Phoenix Valley. <br className="hidden md:block"/>
             Text us a photo and get a firm price in minutes.
           </p>
 
@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
               <CheckCircle2 size={18} className="text-beaver-orange" /> Same-Day Estimates
             </div>
             <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-beaver-orange" /> Serving The Valley
+              <MapPin size={18} className="text-beaver-orange" /> Serving 14+ Valley Cities
             </div>
           </div>
         </div>

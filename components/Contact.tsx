@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
                 <div>
                   <h4 className="text-lg font-bold text-beaver-dark uppercase mb-1">Service Area</h4>
                    <p className="text-lg text-gray-800">
-                    Serving Phoenix, Scottsdale, Mesa, Tempe, and Gilbert.
+                    Serving Phoenix, Scottsdale, Mesa, Tempe, Gilbert, Chandler, Glendale, Peoria, Surprise, Queen Creek, Ahwatukee, Avondale, Goodyear, and Paradise Valley.
                    </p>
                 </div>
               </div>

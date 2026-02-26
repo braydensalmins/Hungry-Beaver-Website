@@ -1,25 +1,31 @@
 import React from 'react';
-import { TreePine, Ruler, Truck, Shovel } from 'lucide-react';
+import { TreePine, Ruler, Truck, Users } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const SERVICES_DATA = [
     {
       title: "Stump Grinding",
-      description: "We grind stumps 6-8 inches below grade. This is perfect for replanting grass or covering with gravel.",
+      description: "We grind stumps 6–8 inches below grade — deep enough for replanting grass, seeding, or gravel cover. Perfect for HOA compliance. Any size stump, any hardwood.",
       icon: TreePine,
       subtext: "Most Popular"
     },
     {
       title: "Surface Root Grinding",
-      description: "Stop breaking your lawnmower blades. We chase and grind those annoying surface roots extending from the stump.",
+      description: "Stop breaking your lawnmower blades. We chase and grind annoying surface roots that extend several feet from the stump, protecting your equipment and improving lawn aesthetics.",
       icon: Ruler,
       subtext: "Save Your Mower"
     },
     {
       title: "Clean Up & Haul Away",
-      description: "Standard service leaves the mulch in the hole (good for soil). Full service means we rake it clean and haul the mess.",
+      description: "Standard service leaves the mulch in the hole — great for soil health. Full service means we backfill, rake the site clean, and haul all excess debris away for a finished look.",
       icon: Truck,
       subtext: "Optional Add-on"
+    },
+    {
+      title: "Multi-Stump Jobs",
+      description: "Contractors and landscapers welcome. Volume jobs handled efficiently with competitive pricing. We're a reliable stump grinding subcontractor for tree services and property managers.",
+      icon: Users,
+      subtext: "Volume Pricing"
     },
   ];
 
@@ -32,7 +38,7 @@ export const Services: React.FC = () => {
           <div className="w-24 h-2 bg-beaver-orange mx-auto mt-6"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SERVICES_DATA.map((service, index) => (
             <div key={index} className="bg-white p-8 border-b-4 border-beaver-orange shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
               <div className="flex justify-between items-start mb-6">

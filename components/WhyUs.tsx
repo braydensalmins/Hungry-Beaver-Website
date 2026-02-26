@@ -1,12 +1,12 @@
 import React from 'react';
-import { Settings, Shield, Users, DollarSign } from 'lucide-react';
+import { Settings, Shield, Leaf, ShieldCheck } from 'lucide-react';
 
 export const WhyUs: React.FC = () => {
   const points = [
-    { icon: Settings, text: "Bandit 2550XP Power" },
-    { icon: Shield, text: "Guards + Clean-up Options" },
-    { icon: Users, text: "Respectful Crews" },
-    { icon: DollarSign, text: "Transparent Pricing" }
+    { icon: Settings, text: "Industrial-Grade Grinder" },
+    { icon: Shield, text: "Same-Day Text Estimates" },
+    { icon: Leaf, text: "No Mess Left Behind" },
+    { icon: ShieldCheck, text: "Fully Licensed & Insured" }
   ];
 
   return (

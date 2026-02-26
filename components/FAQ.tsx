@@ -25,6 +25,30 @@ const FAQS = [
   {
     question: "Is there a minimum charge?",
     answer: "Yes, we have a $150 minimum service fee. This covers our travel, fuel, and equipment setup time for smaller jobs."
+  },
+  {
+    question: "How long does stump grinding take?",
+    answer: "Most residential jobs take between 30 and 90 minutes depending on the number and size of stumps. Larger stumps or surface root grinding may take longer. We'll give you a time estimate when we quote the job."
+  },
+  {
+    question: "Will grass grow back over the ground site?",
+    answer: "Yes. Once the stump is ground down, you can fill the hole with topsoil and spread grass seed. Within a few weeks you'll have new growth. We can also leave the wood chip mulch in place to help the soil retain moisture during germination."
+  },
+  {
+    question: "Do you handle HOA-required stump removal?",
+    answer: "Absolutely. We work with homeowners who need stumps removed to satisfy HOA requirements. We can grind deep enough to allow for re-seeding and, if needed, provide documentation of the work completed for your HOA records."
+  },
+  {
+    question: "Do you offer discounts for multiple stumps?",
+    answer: "Yes! Volume pricing is available. The more stumps you have, the better the per-stump rate. Just list all the stumps when you request a quote and we'll give you a combined price."
+  },
+  {
+    question: "Do you work with landscapers and tree services?",
+    answer: "Yes, we love working with other trade professionals. We're a reliable stump grinding subcontractor for tree services, landscapers, and property managers throughout the Valley. Call us to discuss a partnership or recurring work arrangement."
+  },
+  {
+    question: "What cities do you serve?",
+    answer: "We serve Phoenix, Scottsdale, Mesa, Tempe, Gilbert, Chandler, Glendale, Peoria, Surprise, Queen Creek, Ahwatukee, Avondale, Goodyear, and Paradise Valley. See our Service Areas page for more details."
   }
 ];
 
