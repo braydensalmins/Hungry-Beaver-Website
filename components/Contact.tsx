@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Phone, Mail, MapPin, MessageSquare, Clock } from 'lucide-react';
 import { Button } from './Button';
 import { PHONE_NUMBER, EMAIL_ADDRESS } from '../constants';
+
+const EMAILJS_SERVICE_ID = 'service_kkvaw56';
+const EMAILJS_TEMPLATE_ID = 'template_ajuanqi';
+const EMAILJS_PUBLIC_KEY = '1EOA4fObIeEsDgeQE';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,17 +15,33 @@ export const Contact: React.FC = () => {
     address: '',
     details: ''
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `New Quote Request from ${formData.name}`;
-    const body = `Name: ${formData.name}%0D%0APhone: ${formData.phone}%0D%0AAddress: ${formData.address}%0D%0ADetails: ${formData.details}`;
-    window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          phone: formData.phone,
+          address: formData.address,
+          message: formData.details,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus('success');
+      setFormData({ name: '', phone: '', address: '', details: '' });
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -151,10 +172,19 @@ export const Contact: React.FC = () => {
                ></textarea>
             </div>
 
-            <Button variant="primary" className="w-full" type="submit">
-              Send Request
-            </Button>
-            <p className="text-center text-xs text-gray-400 mt-4">Your information is safe with us.</p>
+            {status === 'success' ? (
+              <div className="w-full bg-green-50 border-2 border-green-400 text-green-700 font-bold text-center py-4 rounded-sm">
+                ✓ Request sent! We'll get back to you within 2 hours.
+              </div>
+            ) : (
+              <Button variant="primary" className="w-full" type="submit" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Sending...' : 'Send Request'}
+              </Button>
+            )}
+            {status === 'error' && (
+              <p className="text-center text-sm text-red-500 mt-2">Something went wrong. Please call or text us directly.</p>
+            )}
+            {status !== 'error' && <p className="text-center text-xs text-gray-400 mt-4">Your information is safe with us.</p>}
           </form>
 
         </div>
