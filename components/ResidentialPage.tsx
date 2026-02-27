@@ -1,0 +1,236 @@
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from './Button';
+import { PRICING_TIERS, PHONE_NUMBER } from '../constants';
+import {
+  CheckCircle2, ShieldCheck, MessageSquare,
+  ClipboardList, Hammer, Leaf, Truck, Calculator,
+} from 'lucide-react';
+
+const FAQ_ANSWER_PARAGRAPHS = [
+  `When our crew arrives at your property, we start by walking the site — with you or on our own if you're not home — to assess the stump's size, root spread, and proximity to your fence, irrigation lines, or landscaping. We measure the stump at its widest point at ground level to confirm the estimate you already received.`,
+
+  `Next, we position our commercial stump grinder directly over the stump. The machine uses a spinning, carbide-tipped cutting wheel to chip away at the wood in a back-and-forth arc, working down through the stump in controlled passes. For a standard residential stump removal job, we grind to about 6–8 inches below grade — deep enough to top-dress with soil and grow grass over. If you plan to replant a tree in the exact same spot, let us know upfront and we can grind deeper on request.`,
+
+  `As the grinder runs, it produces a pile of wood chips and fine mulch right where the stump used to sit. With our Standard Grind, we leave that material in the hole. It compacts naturally over a few weeks and makes excellent soil amendment for your backyard. With our Full Service package, we rake the area clean, backfill the void, and haul the excess chips off your property so your yard looks tidy the same day — no pile left behind.`,
+
+  `By the time we load up and leave, there's no stump, no trip hazard, and no eyesore in your lawn. Just a clean, flat patch of ground ready for topsoil, sod, or fresh seed. Most backyard stump grinding jobs across the Phoenix Valley take between 30 and 90 minutes from arrival to cleanup, depending on the stump's diameter and root spread. The tree stump removal cost is calculated by the inch, with a $150 minimum — no surprises on the invoice.`,
+];
+
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How does residential stump grinding work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: FAQ_ANSWER_PARAGRAPHS.join(' '),
+      },
+    },
+  ],
+};
+
+const STEPS = [
+  {
+    number: '01',
+    Icon: ClipboardList,
+    name: 'Assess',
+    description: 'We arrive on-site, walk the area, and measure your stump to confirm the estimate. We check for nearby irrigation lines or obstacles before starting.',
+  },
+  {
+    number: '02',
+    Icon: Hammer,
+    name: 'Grind',
+    description: 'Our commercial grinder chips the stump down 6–8 inches below grade using a carbide-tipped cutting wheel — quiet enough for residential neighborhoods.',
+  },
+  {
+    number: '03',
+    Icon: Leaf,
+    name: 'Clean Up',
+    description: 'Wood chips are left in the hole (Standard) or backfilled and raked clean (Full Service). We\'ll ask which finish you prefer when we quote the job.',
+  },
+  {
+    number: '04',
+    Icon: Truck,
+    name: 'Haul Away',
+    description: 'Full Service includes hauling all excess debris off-site. Your yard is ready for topsoil and seed the same day we leave.',
+  },
+];
+
+export const ResidentialPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = 'Residential Stump Grinding | Hungry Beaver Stump Grinding';
+  }, []);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+
+      <div className="pt-24">
+
+        {/* ── Section 1: Hero ── */}
+        <section className="bg-beaver-dark text-white py-20 lg:py-28">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+            <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-8">
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={16} className="text-beaver-orange" />
+                <span className="text-xs sm:text-sm font-bold tracking-wide uppercase">Local, Licensed & Insured</span>
+              </div>
+              <div className="hidden sm:block w-1 h-4 bg-white/20" />
+              <div className="flex items-center gap-2">
+                <MessageSquare size={16} className="text-beaver-orange" />
+                <span className="text-xs sm:text-sm font-bold tracking-wide uppercase">Same-Day Service Available</span>
+              </div>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-4 leading-[1.05]">
+              RESIDENTIAL<br />
+              <span className="text-beaver-orange">STUMP GRINDING</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl font-display font-bold text-gray-300 mb-6 uppercase tracking-wide">
+              That stump is a tripping hazard, a pest magnet, and an eyesore.
+            </p>
+
+            <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              We handle residential stump removal across the Greater Phoenix Valley with fast turnarounds and zero damage to your surrounding lawn. Our equipment is compact enough for backyard access, and we leave your property cleaner than we found it. Locally owned, fully insured, and priced straight — no surprises on the invoice.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => navigate('/calculator')}
+                className="shadow-lg shadow-orange-900/20 flex items-center gap-2"
+              >
+                <Calculator size={20} />
+                Calculate Cost
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-white border-white hover:bg-white hover:text-beaver-dark"
+                onClick={() => { window.location.href = `sms:${PHONE_NUMBER}`; }}
+              >
+                Text Us a Photo
+              </Button>
+            </div>
+
+            <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-gray-400 uppercase tracking-wider">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 size={18} className="text-beaver-orange" /> 5-Star Rated
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 size={18} className="text-beaver-orange" /> Same-Day Estimates
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 size={18} className="text-beaver-orange" /> No Lawn Damage
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 2: How It Works ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">The Process</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-beaver-dark">
+                FROM YOUR YARD TO CLEAN GROUND IN HOURS
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {STEPS.map((step) => (
+                <div key={step.number} className="flex flex-col items-start p-6 border-t-4 border-beaver-orange bg-beaver-cream shadow-sm">
+                  <span className="text-5xl font-display font-bold text-beaver-orange leading-none mb-4">{step.number}</span>
+                  <step.Icon size={28} className="text-beaver-dark mb-3" />
+                  <h3 className="text-lg font-display font-bold text-beaver-dark uppercase tracking-wide mb-2">{step.name}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 3: FAQ — How Stump Grinding Works ── */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">FAQ</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-beaver-dark">
+                HOW STUMP GRINDING WORKS
+              </h2>
+            </div>
+
+            <div className="bg-white border-t-4 border-beaver-orange shadow-sm p-8 md:p-12">
+              <h3 className="text-lg font-bold text-beaver-dark uppercase tracking-wide mb-6 border-b border-gray-200 pb-4">
+                What actually happens during a residential stump grinding job?
+              </h3>
+              {FAQ_ANSWER_PARAGRAPHS.map((para, i) => (
+                <p key={i} className="text-gray-600 leading-relaxed mb-5 last:mb-0">{para}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 4: Pricing ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Transparent Pricing</p>
+              <h2 className="text-4xl font-display font-bold text-beaver-dark">NO HIDDEN FEES. JUST HONEST WORK.</h2>
+              <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                We price by the inch. Measure your stump at the widest point where it touches the ground (including visible surface roots) to get an idea of your stump removal cost.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+              {PRICING_TIERS.map((tier) => (
+                <div key={tier.name} className="bg-beaver-cream p-6 border-l-4 border-beaver-dark shadow-sm">
+                  <div className="flex justify-between items-baseline mb-3">
+                    <h3 className="text-xl font-bold font-display uppercase">{tier.name}</h3>
+                    <span className="text-2xl font-bold text-beaver-orange">{tier.price}</span>
+                  </div>
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {tier.features.map((feature, i) => (
+                      <li key={i} className="flex items-center">
+                        <span className="w-1.5 h-1.5 bg-beaver-dark rounded-full mr-2 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-beaver-dark text-white p-10 text-center rounded-xl shadow-xl">
+              <h3 className="text-2xl font-display font-bold mb-4">Ready to get an exact number?</h3>
+              <p className="text-gray-300 mb-8 max-w-xl mx-auto">
+                Use our interactive calculator to estimate your stump grinding service cost in seconds. No email required.
+              </p>
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => navigate('/calculator')}
+                className="flex items-center gap-2 mx-auto"
+              >
+                <Calculator size={22} />
+                Calculate Your Cost Now
+              </Button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </>
+  );
+};

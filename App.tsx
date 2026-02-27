@@ -8,6 +8,7 @@ import { CalculatorPage } from './components/CalculatorPage';
 import { QuotePage } from './components/QuotePage';
 import { ContactPage } from './components/ContactPage';
 import { ServiceAreasPage } from './components/ServiceAreasPage';
+import { ResidentialPage } from './components/ResidentialPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { BeaverBot } from './components/BeaverBot';
@@ -29,6 +30,7 @@ function App() {
             <Route path="/quote" element={<QuotePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
+            <Route path="/services/residential" element={<ResidentialPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
