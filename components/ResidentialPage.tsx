@@ -4,17 +4,14 @@ import { Button } from './Button';
 import { PRICING_TIERS, PHONE_NUMBER } from '../constants';
 import {
   CheckCircle2, ShieldCheck, MessageSquare,
-  ClipboardList, Hammer, Leaf, Truck, Calculator,
+  ClipboardList, Hammer, Leaf, Truck, Calculator, Ruler,
 } from 'lucide-react';
+import { StumpDiagram } from './StumpDiagram';
 
 const FAQ_ANSWER_PARAGRAPHS = [
-  `When our crew arrives at your property, we start by walking the site — with you or on our own if you're not home — to assess the stump's size, root spread, and proximity to your fence, irrigation lines, or landscaping. We measure the stump at its widest point at ground level to confirm the estimate you already received.`,
+  `When we arrive, we assess the stump, measure it at the widest point at ground level, and position our commercial grinder. The carbide-tipped cutting wheel works down through the wood in passes, grinding 6–8 inches below grade — deep enough to top-dress with topsoil and grow grass over.`,
 
-  `Next, we position our commercial stump grinder directly over the stump. The machine uses a spinning, carbide-tipped cutting wheel to chip away at the wood in a back-and-forth arc, working down through the stump in controlled passes. For a standard residential stump removal job, we grind to about 6–8 inches below grade — deep enough to top-dress with soil and grow grass over. If you plan to replant a tree in the exact same spot, let us know upfront and we can grind deeper on request.`,
-
-  `As the grinder runs, it produces a pile of wood chips and fine mulch right where the stump used to sit. With our Standard Grind, we leave that material in the hole. It compacts naturally over a few weeks and makes excellent soil amendment for your backyard. With our Full Service package, we rake the area clean, backfill the void, and haul the excess chips off your property so your yard looks tidy the same day — no pile left behind.`,
-
-  `By the time we load up and leave, there's no stump, no trip hazard, and no eyesore in your lawn. Just a clean, flat patch of ground ready for topsoil, sod, or fresh seed. Most backyard stump grinding jobs across the Phoenix Valley take between 30 and 90 minutes from arrival to cleanup, depending on the stump's diameter and root spread. The tree stump removal cost is calculated by the inch, with a $150 minimum — no surprises on the invoice.`,
+  `The machine leaves a pile of wood chips where the stump used to be. With our Standard Grind, we leave the mulch in place to decompose naturally. With Full Service, we backfill, rake the area clean, and haul the excess off your property. Most Phoenix Valley residential stump removal jobs take 30–90 minutes start to finish, and the tree stump removal cost is calculated by the inch with a $150 minimum.`,
 ];
 
 const FAQ_SCHEMA = {
@@ -64,6 +61,13 @@ export const ResidentialPage: React.FC = () => {
 
   useEffect(() => {
     document.title = 'Residential Stump Grinding | Hungry Beaver Stump Grinding';
+    let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
+    }
+    meta.content = 'Hungry Beaver Stump Grinding offers fast, affordable residential stump removal across the Greater Phoenix Valley. No hidden fees. Same-day estimates. Call 480-283-4560.';
   }, []);
 
   return (
@@ -76,8 +80,14 @@ export const ResidentialPage: React.FC = () => {
       <div className="pt-24">
 
         {/* ── Section 1: Hero ── */}
-        <section className="bg-beaver-dark text-white py-20 lg:py-28">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="relative bg-beaver-dark text-white py-20 lg:py-28 overflow-hidden">
+          <img
+            src="/images/residential-hero.jpg"
+            alt="residential stump grinding Phoenix AZ backyard"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-beaver-dark/80" />
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
             <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-8">
               <div className="flex items-center gap-2">
@@ -163,7 +173,7 @@ export const ResidentialPage: React.FC = () => {
 
         {/* ── Section 3: FAQ — How Stump Grinding Works ── */}
         <section className="py-20 bg-gray-50">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">FAQ</p>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-beaver-dark">
@@ -193,23 +203,42 @@ export const ResidentialPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
-              {PRICING_TIERS.map((tier) => (
-                <div key={tier.name} className="bg-beaver-cream p-6 border-l-4 border-beaver-dark shadow-sm">
-                  <div className="flex justify-between items-baseline mb-3">
-                    <h3 className="text-xl font-bold font-display uppercase">{tier.name}</h3>
-                    <span className="text-2xl font-bold text-beaver-orange">{tier.price}</span>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14">
+              {/* Left: Pricing Tiers */}
+              <div className="space-y-6">
+                {PRICING_TIERS.map((tier) => (
+                  <div key={tier.name} className="bg-beaver-cream p-6 border-l-4 border-beaver-dark shadow-sm">
+                    <div className="flex justify-between items-baseline mb-3">
+                      <h3 className="text-xl font-bold font-display uppercase">{tier.name}</h3>
+                      <span className="text-2xl font-bold text-beaver-orange">{tier.price}</span>
+                    </div>
+                    <ul className="text-sm text-gray-600 space-y-2">
+                      {tier.features.map((feature, i) => (
+                        <li key={i} className="flex items-center">
+                          <span className="w-1.5 h-1.5 bg-beaver-dark rounded-full mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-center">
-                        <span className="w-1.5 h-1.5 bg-beaver-dark rounded-full mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                ))}
+              </div>
+
+              {/* Right: How to Measure diagram */}
+              <div className="bg-gray-900 p-8 rounded-lg shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                  <Ruler size={100} className="text-white" />
                 </div>
-              ))}
+                <h4 className="text-white font-bold uppercase tracking-wider mb-6 flex items-center gap-2 relative z-10">
+                  <Ruler size={18} className="text-beaver-orange" /> How to Measure
+                </h4>
+                <div className="bg-gray-800/50 rounded-lg p-2 relative z-10">
+                  <StumpDiagram />
+                </div>
+                <p className="text-gray-400 text-sm mt-4 text-center relative z-10">
+                  Measure the widest point at ground level, including roots.
+                </p>
+              </div>
             </div>
 
             <div className="bg-beaver-dark text-white p-10 text-center rounded-xl shadow-xl">
