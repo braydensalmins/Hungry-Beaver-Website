@@ -67,11 +67,11 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) =>
               link.name === 'Services' ? (
-                <div key="services" className="relative group">
+                <div key="services" className="relative group pb-2">
                   <button className="flex items-center gap-1 text-white hover:text-beaver-orange font-display font-bold uppercase tracking-wide text-sm transition-colors">
                     Services <ChevronDown size={14} className="mt-0.5 group-hover:rotate-180 transition-transform duration-200" />
                   </button>
-                  <div className="absolute top-full left-0 mt-2 w-44 bg-gray-900 border border-gray-700 shadow-xl hidden group-hover:block z-50">
+                  <div className="absolute top-full left-0 w-44 bg-gray-900 border border-gray-700 shadow-xl hidden group-hover:block z-50">
                     {SERVICE_LINKS.map((s) =>
                       s.live ? (
                         <Link

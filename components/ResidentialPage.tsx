@@ -77,17 +77,9 @@ export const ResidentialPage: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
 
-      <div className="pt-24">
-
         {/* ── Section 1: Hero ── */}
-        <section className="relative bg-beaver-dark text-white py-20 lg:py-28 overflow-hidden">
-          <img
-            src="/images/residential-hero.jpg"
-            alt="residential stump grinding Phoenix AZ backyard"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-beaver-dark/80" />
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="bg-beaver-dark text-white pt-44 pb-20 lg:pt-52 lg:pb-28">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
             <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-8">
               <div className="flex items-center gap-2">
@@ -259,7 +251,6 @@ export const ResidentialPage: React.FC = () => {
           </div>
         </section>
 
-      </div>
     </>
   );
 };
