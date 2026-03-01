@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
-import { PRICING_TIERS, PHONE_NUMBER } from '../constants';
+import { PRICING_ROWS, PHONE_NUMBER } from '../constants';
 import {
   CheckCircle2, ShieldCheck, MessageSquare,
-  ClipboardList, Hammer, Leaf, Truck, Calculator, Ruler,
+  ClipboardList, Hammer, Leaf, Truck, Calculator,
 } from 'lucide-react';
-import { StumpDiagram } from './StumpDiagram';
+import { HowToMeasure } from './HowToMeasure';
 
 const FAQ_ANSWER_PARAGRAPHS = [
   `When we arrive, we assess the stump, measure it at the widest point at ground level, and position our commercial grinder. The carbide-tipped cutting wheel works down through the wood in passes, grinding 6–8 inches below grade — deep enough to top-dress with topsoil and grow grass over.`,
 
-  `The machine leaves a pile of wood chips where the stump used to be. With our Standard Grind, we leave the mulch in place to decompose naturally. With Full Service, we backfill, rake the area clean, and haul the excess off your property. Most Phoenix Valley residential stump removal jobs take 30–90 minutes start to finish, and the tree stump removal cost is calculated by the inch with a $150 minimum.`,
+  `The machine leaves a pile of wood chips where the stump used to be. With our Standard Grind, we leave the mulch in place to decompose naturally. With Full Service, we backfill, rake the area clean, and haul the excess off your property. Most Phoenix Valley residential stump removal jobs take 30–90 minutes start to finish.`,
 ];
 
 const FAQ_SCHEMA = {
@@ -186,70 +186,60 @@ export const ResidentialPage: React.FC = () => {
 
         {/* ── Section 4: Pricing ── */}
         <section className="py-20 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
               <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Transparent Pricing</p>
               <h2 className="text-4xl font-display font-bold text-beaver-dark">NO HIDDEN FEES. JUST HONEST WORK.</h2>
               <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-                We price by the inch. Measure your stump at the widest point where it touches the ground (including visible surface roots) to get an idea of your stump removal cost.
+                Use this guide to get a ballpark before you call. Every job is confirmed with a firm quote — no surprises on the invoice.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14">
-              {/* Left: Pricing Tiers */}
-              <div className="space-y-6">
-                {PRICING_TIERS.map((tier) => (
-                  <div key={tier.name} className="bg-beaver-cream p-6 border-l-4 border-beaver-dark shadow-sm">
-                    <div className="flex justify-between items-baseline mb-3">
-                      <h3 className="text-xl font-bold font-display uppercase">{tier.name}</h3>
-                      <span className="text-2xl font-bold text-beaver-orange">{tier.price}</span>
-                    </div>
-                    <ul className="text-sm text-gray-600 space-y-2">
-                      {tier.features.map((feature, i) => (
-                        <li key={i} className="flex items-center">
-                          <span className="w-1.5 h-1.5 bg-beaver-dark rounded-full mr-2 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right: How to Measure diagram */}
-              <div className="bg-gray-900 p-8 rounded-lg shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-                  <Ruler size={100} className="text-white" />
-                </div>
-                <h4 className="text-white font-bold uppercase tracking-wider mb-6 flex items-center gap-2 relative z-10">
-                  <Ruler size={18} className="text-beaver-orange" /> How to Measure
-                </h4>
-                <div className="bg-gray-800/50 rounded-lg p-2 relative z-10">
-                  <StumpDiagram />
-                </div>
-                <p className="text-gray-400 text-sm mt-4 text-center relative z-10">
-                  Measure the widest point at ground level, including roots.
-                </p>
-              </div>
+            {/* Pricing Table */}
+            <div className="overflow-x-auto mb-4 shadow-sm border border-gray-200">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-beaver-dark text-white uppercase text-xs tracking-wider">
+                    <th className="px-5 py-4 font-bold w-1/4">Stump Size</th>
+                    <th className="px-5 py-4 font-bold w-1/5">Estimated Cost</th>
+                    <th className="px-5 py-4 font-bold w-1/3">Major Cost Factors</th>
+                    <th className="px-5 py-4 font-bold">The Hungry Beaver Standard</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PRICING_ROWS.map((row, i) => (
+                    <tr key={row.size} className={i % 2 === 0 ? 'bg-white' : 'bg-beaver-cream'}>
+                      <td className="px-5 py-5 font-bold text-beaver-dark text-sm align-top">{row.size}</td>
+                      <td className="px-5 py-5 align-top">
+                        <span className="text-beaver-orange font-bold text-lg">{row.range}</span>
+                      </td>
+                      <td className="px-5 py-5 align-top">
+                        <ul className="space-y-1">
+                          {row.factors.map((f) => (
+                            <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
+                              <span className="mt-1.5 w-1.5 h-1.5 bg-beaver-orange rounded-full flex-shrink-0" />
+                              {f}
+                            </li>
+                          ))}
+                        </ul>
+                      </td>
+                      <td className="px-5 py-5 align-top text-sm text-gray-700 italic">{row.standard}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
 
-            <div className="bg-beaver-dark text-white p-10 text-center rounded-xl shadow-xl">
-              <h3 className="text-2xl font-display font-bold mb-4">Ready to get an exact number?</h3>
-              <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                Use our interactive calculator to estimate your stump grinding service cost in seconds. No email required.
-              </p>
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => navigate('/calculator')}
-                className="flex items-center gap-2 mx-auto"
-              >
-                <Calculator size={22} />
-                Calculate Your Cost Now
-              </Button>
-            </div>
+            {/* Disclaimer */}
+            <p className="text-sm text-gray-400 italic mb-14 px-1">
+              *Pricing varies based on access, depth, and site conditions. Final price determined at on-site or virtual quote.
+            </p>
+
           </div>
+
         </section>
+
+        <HowToMeasure showCalculatorCTA />
 
     </>
   );

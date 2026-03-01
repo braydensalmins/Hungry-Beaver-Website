@@ -1,5 +1,5 @@
 import { Phone, TreePine, Ruler, Truck, ShieldCheck, Clock } from 'lucide-react';
-import { ServiceItem, PricingTier } from './types';
+import { ServiceItem, PricingTier, PricingRow } from './types';
 
 export const COMPANY_NAME = "Hungry Beaver Stump Grinding";
 export const PHONE_NUMBER = "480-283-4560";
@@ -33,6 +33,33 @@ export const PRICING_TIERS: PricingTier[] = [
     name: "Full Service",
     price: "$14.00 / inch",
     features: ["Grind 6-8\" below grade", "Mulch backfilled", "Excess hauled away", "Site raked clean"],
+  },
+];
+
+export const PRICING_ROWS: PricingRow[] = [
+  {
+    size: 'Small – Up to 12"',
+    range: '$150 – $225',
+    factors: ['$150 minimum applies', 'Gate / yard access', 'Grinding depth'],
+    standard: 'Commercial grinder on every job — not a rental',
+  },
+  {
+    size: 'Medium – 12" to 24"',
+    range: '$200 – $375',
+    factors: ['Surface root spread', 'Stump age & hardness', 'Site access'],
+    standard: 'Industrial-grade machine for clean, fast cuts',
+  },
+  {
+    size: 'Large – 24" to 36"',
+    range: '$300 – $500',
+    factors: ['Root complexity', 'Depth requested', 'Debris volume'],
+    standard: 'Same-day availability for most Valley jobs',
+  },
+  {
+    size: 'Extra Large – 36"+',
+    range: 'Quote required',
+    factors: ['Custom on-site assessment', 'Multi-pass grinding', 'Equipment access'],
+    standard: 'Free on-site estimate, no obligation',
   },
 ];
 

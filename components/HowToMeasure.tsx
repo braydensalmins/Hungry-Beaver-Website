@@ -1,16 +1,23 @@
 import React from 'react';
-import { Ruler, Check, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Ruler, Check, X, Calculator } from 'lucide-react';
 import { Button } from './Button';
 import { PHONE_NUMBER } from '../constants';
 import { StumpDiagram } from './StumpDiagram';
 
-export const HowToMeasure: React.FC = () => {
+interface Props {
+  showCalculatorCTA?: boolean;
+}
+
+export const HowToMeasure: React.FC<Props> = ({ showCalculatorCTA = false }) => {
+  const navigate = useNavigate();
+
   return (
     <section id="measure" className="py-20 bg-gray-900 text-white border-t border-gray-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Visual Diagram - SVG Implementation */}
           <div className="relative flex flex-col items-center py-10 order-2 lg:order-1">
              <StumpDiagram />
@@ -37,9 +44,18 @@ export const HowToMeasure: React.FC = () => {
               Most pricing disputes happen because of measuring the "cut face" instead of the "root flare" (if there is one). The machine has to grind everything that sticks out of the ground to make it flat.
             </p>
 
-            <Button variant="secondary" onClick={() => window.location.href = `sms:${PHONE_NUMBER}`}>
-              Still not sure? Text us a photo
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
+              {showCalculatorCTA && (
+                <Button variant="primary" onClick={() => navigate('/calculator')}
+                  className="flex items-center gap-2">
+                  <Calculator size={18} />
+                  Calculate Your Cost Now
+                </Button>
+              )}
+              <Button variant="secondary" onClick={() => window.location.href = `sms:${PHONE_NUMBER}`}>
+                Still not sure? Text us a photo
+              </Button>
+            </div>
           </div>
 
         </div>

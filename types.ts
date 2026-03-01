@@ -12,6 +12,13 @@ export interface PricingTier {
   features: string[];
 }
 
+export interface PricingRow {
+  size: string;
+  range: string;
+  factors: string[];
+  standard: string;
+}
+
 export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
