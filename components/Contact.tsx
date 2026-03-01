@@ -72,7 +72,7 @@ export const Contact: React.FC = () => {
               We know you want this done fast. For the quickest response, text us a photo of your stump.
             </p>
 
-            <div className="bg-beaver-dark text-white p-6 rounded-lg mb-10 shadow-xl border-l-4 border-beaver-orange transform -rotate-1">
+            <div className="bg-beaver-dark text-white p-6 rounded-lg mb-10 shadow-xl border-l-4 border-beaver-orange">
                 <div className="flex items-center gap-4 mb-2">
                     <MessageSquare className="text-beaver-orange w-8 h-8" />
                     <h4 className="text-2xl font-bold font-display uppercase">Fastest Way: Text Us</h4>
