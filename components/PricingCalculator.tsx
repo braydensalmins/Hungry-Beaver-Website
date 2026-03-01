@@ -73,7 +73,7 @@ export const PricingCalculator: React.FC = () => {
             from_name: `${contactInfo.firstName} ${contactInfo.lastName}`,
             phone: contactInfo.phone,
             address: `Zip: ${contactInfo.zip}`,
-            message: `Estimate request from calculator.\nStump width: ${diameter}"\nStump count: ${stumpCount}\nStandard estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`}\nFull service estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`}`,
+            message: `Estimate request from calculator.\nEmail: ${contactInfo.email}\nStump width: ${diameter}"\nStump count: ${stumpCount}\nStandard estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`}\nFull service estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`}`,
           },
           EMAILJS_PUBLIC_KEY
         ),
