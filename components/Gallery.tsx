@@ -13,6 +13,14 @@ export const Gallery: React.FC = () => {
       location: "Tempe, AZ",
       time: "1 Hour",
       cost: "$200"
+    },
+    {
+      before: "/before 2.jpeg",
+      after: "/after 2.jpeg",
+      title: "36\" Palm Tree Stump",
+      location: "Buckeye, AZ",
+      time: "1 Hour (tight gate access)",
+      cost: "$250"
     }
   ];
 
