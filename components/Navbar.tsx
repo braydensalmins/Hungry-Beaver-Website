@@ -48,10 +48,10 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between h-24 items-center">
           {/* Logo / Brand */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-6">
-            <img 
-              src="/beaver-icon.png" 
-              alt="Hungry Beaver Stump Grinding Logo" 
-              className="h-16 md:h-20 w-auto object-contain rounded-md relative top-[1px]"
+            <img
+              src="/Hungry Beaver Stump Grinding Favicon.png"
+              alt="Hungry Beaver Stump Grinding Logo"
+              className="h-20 md:h-24 w-auto object-contain rounded-md relative top-[1px]"
             />
             <div className="flex flex-col items-center">
               <span className="text-lg md:text-2xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
