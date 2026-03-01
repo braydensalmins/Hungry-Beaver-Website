@@ -8,11 +8,22 @@ const EMAILJS_SERVICE_ID = 'service_kkvaw56';
 const EMAILJS_TEMPLATE_ID = 'template_ajuanqi';
 const EMAILJS_PUBLIC_KEY = '1EOA4fObIeEsDgeQE';
 
+const formatPhone = (value: string) => {
+  const digits = value.replace(/\D/g, '').slice(0, 10);
+  if (digits.length <= 3) return digits.length ? `(${digits}` : '';
+  if (digits.length <= 6) return `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+};
+
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     phone: '',
-    address: '',
+    streetAddress: '',
+    city: '',
+    state: '',
+    zip: '',
     details: ''
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -20,6 +31,10 @@ export const Contact: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData(prev => ({ ...prev, phone: formatPhone(e.target.value) }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,15 +45,15 @@ export const Contact: React.FC = () => {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          from_name: formData.name,
+          from_name: `${formData.firstName} ${formData.lastName}`,
           phone: formData.phone,
-          address: formData.address,
+          address: `${formData.streetAddress}, ${formData.city}, ${formData.state} ${formData.zip}`,
           message: formData.details,
         },
         EMAILJS_PUBLIC_KEY
       );
       setStatus('success');
-      setFormData({ name: '', phone: '', address: '', details: '' });
+      setFormData({ firstName: '', lastName: '', phone: '', streetAddress: '', city: '', state: '', zip: '', details: '' });
     } catch {
       setStatus('error');
     }
@@ -121,42 +136,94 @@ export const Contact: React.FC = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-2 gap-6 mb-6">
               <div>
-                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Name</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  value={formData.name}
+                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors" 
+                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Phone</label>
-                <input 
-                  type="tel" 
-                  name="phone"
-                  value={formData.phone}
+                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors" 
-                  placeholder="(480) ..." 
+                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
                   required
                 />
               </div>
             </div>
-            
+
             <div className="mb-6">
-               <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Job Address</label>
-               <input 
-                 type="text" 
-                 name="address"
-                 value={formData.address}
-                 onChange={handleChange}
-                 className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors" 
-                 required
-               />
+              <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handlePhoneChange}
+                className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
+                placeholder="(480) 555-1234"
+                required
+              />
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Street Address</label>
+              <input
+                type="text"
+                name="streetAddress"
+                value={formData.streetAddress}
+                onChange={handleChange}
+                className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
+                required
+              />
+            </div>
+
+            <div className="grid grid-cols-6 gap-4 mb-6">
+              <div className="col-span-3">
+                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">City</label>
+                <input
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
+                  required
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">State</label>
+                <input
+                  type="text"
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
+                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
+                  placeholder="AZ"
+                  maxLength={2}
+                  required
+                />
+              </div>
+              <div className="col-span-2">
+                <label className="block text-sm font-bold text-gray-700 uppercase mb-2">Zip</label>
+                <input
+                  type="text"
+                  name="zip"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  className="w-full bg-white border-2 border-gray-200 p-3 focus:border-beaver-orange focus:outline-none transition-colors"
+                  placeholder="85001"
+                  maxLength={5}
+                  required
+                />
+              </div>
             </div>
 
             <div className="mb-8">

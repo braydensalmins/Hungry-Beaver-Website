@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
           <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-8 animate-fade-in-up">
             <div className="flex items-center gap-2">
               <ShieldCheck size={16} className="text-beaver-orange" />
-              <span className="text-xs sm:text-sm font-bold tracking-wide uppercase">Local, Licensed & Insured</span>
+              <span className="text-xs sm:text-sm font-bold tracking-wide uppercase">Local, Insured & Bonded</span>
             </div>
             <div className="hidden sm:block w-1 h-4 bg-white/20"></div>
             <div className="flex items-center gap-2">

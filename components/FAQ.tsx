@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     question: "What about underground pipes or wires?",
-    answer: "We highly recommend calling 811 (Blue Stake) a few days before your appointment to have public utilities marked. For private lines like sprinklers or landscape lighting, please mark them or let us know their location. We are careful, but we cannot see what is underground."
+    answer: "Before every job, we call 811 (Blue Stake) to have all public utilities marked. For private lines like irrigation, sprinklers, or landscape lighting, please mark them or let us know their location prior to your appointment. We take every precaution, but we cannot be responsible for unmarked private lines underground."
   },
   {
     question: "How soon can you get the job done?",
