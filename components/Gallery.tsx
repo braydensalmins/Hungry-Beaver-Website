@@ -15,8 +15,8 @@ export const Gallery: React.FC = () => {
       cost: "$200"
     },
     {
-      before: "/before 2.jpeg",
-      after: "/after 2.jpeg",
+      before: "/before-2.jpeg",
+      after: "/after-2.jpeg",
       title: "36\" Palm Tree Stump",
       location: "Buckeye, AZ",
       time: "1 Hour (tight gate access)",
