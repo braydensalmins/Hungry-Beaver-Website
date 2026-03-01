@@ -9,6 +9,7 @@ import { QuotePage } from './components/QuotePage';
 import { ContactPage } from './components/ContactPage';
 import { ServiceAreasPage } from './components/ServiceAreasPage';
 import { ResidentialPage } from './components/ResidentialPage';
+import { CommercialPage } from './components/CommercialPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { BeaverBot } from './components/BeaverBot';
@@ -31,6 +32,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/services/residential" element={<ResidentialPage />} />
+            <Route path="/services/commercial" element={<CommercialPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

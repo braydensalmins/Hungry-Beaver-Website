@@ -6,7 +6,7 @@ import { Button } from './Button';
 
 const SERVICE_LINKS = [
   { name: 'Residential', href: '/services/residential', live: true },
-  { name: 'Commercial', href: '#', live: false },
+  { name: 'Commercial', href: '/services/commercial', live: true },
   { name: 'Municipal', href: '#', live: false },
   { name: 'Raised Roots', href: '#', live: false },
 ];
