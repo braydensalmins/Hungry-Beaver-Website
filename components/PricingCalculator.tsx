@@ -47,22 +47,37 @@ export const PricingCalculator: React.FC = () => {
     e.preventDefault();
     setEmailStatus('sending');
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_ESTIMATE_TEMPLATE_ID,
-        {
-          to_email: contactInfo.email,
-          first_name: contactInfo.firstName,
-          last_name: contactInfo.lastName,
-          phone: contactInfo.phone,
-          zip: contactInfo.zip,
-          diameter: diameter,
-          stump_count: stumpCount,
-          std_estimate: stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`,
-          full_estimate: stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`,
-        },
-        EMAILJS_PUBLIC_KEY
-      );
+      await Promise.all([
+        // Email to customer
+        emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_ESTIMATE_TEMPLATE_ID,
+          {
+            to_email: contactInfo.email,
+            first_name: contactInfo.firstName,
+            last_name: contactInfo.lastName,
+            phone: contactInfo.phone,
+            zip: contactInfo.zip,
+            diameter: diameter,
+            stump_count: stumpCount,
+            std_estimate: stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`,
+            full_estimate: stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`,
+          },
+          EMAILJS_PUBLIC_KEY
+        ),
+        // Notification to business
+        emailjs.send(
+          EMAILJS_SERVICE_ID,
+          'template_ajuanqi',
+          {
+            from_name: `${contactInfo.firstName} ${contactInfo.lastName}`,
+            phone: contactInfo.phone,
+            address: `Zip: ${contactInfo.zip}`,
+            message: `Estimate request from calculator.\nStump width: ${diameter}"\nStump count: ${stumpCount}\nStandard estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`}\nFull service estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`}`,
+          },
+          EMAILJS_PUBLIC_KEY
+        ),
+      ]);
       setEmailStatus('success');
     } catch {
       setEmailStatus('error');
