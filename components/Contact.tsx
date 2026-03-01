@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
                   <a href={`tel:${PHONE_NUMBER}`} className="text-2xl font-display font-bold text-gray-800 hover:text-beaver-orange transition-colors">
                     {PHONE_NUMBER}
                   </a>
-                  <p className="text-gray-500 mt-1 text-sm">Mon-Fri: 7am - 6pm</p>
+                  <p className="text-gray-500 mt-1 text-sm">Mon-Fri: 8am - 5pm</p>
                 </div>
               </div>
 

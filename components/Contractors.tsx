@@ -49,7 +49,7 @@ export const Contractors: React.FC = () => {
           >
             Call to Discuss a Partnership
           </a>
-          <p className="text-gray-500 text-sm mt-4">{PHONE_NUMBER} · Mon–Fri 7am–6pm</p>
+          <p className="text-gray-500 text-sm mt-4">{PHONE_NUMBER} · Mon–Fri 8am–5pm</p>
         </div>
       </div>
     </section>

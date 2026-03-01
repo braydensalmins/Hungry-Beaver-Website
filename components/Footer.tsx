@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-gray-400 text-sm">
               <li><a href={`tel:${PHONE_NUMBER}`} className="hover:text-beaver-orange">{PHONE_NUMBER}</a></li>
               <li><a href={`mailto:${EMAIL_ADDRESS}`} className="hover:text-beaver-orange">{EMAIL_ADDRESS}</a></li>
-              <li className="pt-2 text-xs">Mon–Fri: 7am – 6pm</li>
+              <li className="pt-2 text-xs">Mon–Fri: 8am – 5pm</li>
             </ul>
           </div>
         </div>
