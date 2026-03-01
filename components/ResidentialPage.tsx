@@ -78,7 +78,7 @@ export const ResidentialPage: React.FC = () => {
       />
 
         {/* ── Section 1: Hero ── */}
-        <section className="bg-beaver-dark text-white pt-28 pb-20 lg:pt-36 lg:pb-28">
+        <section className="bg-beaver-dark text-white pt-10 pb-20 lg:pt-20 lg:pb-28">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
             <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20 mb-8">
