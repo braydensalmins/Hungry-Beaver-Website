@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     question: "What do you do with the wood chips?",
-    answer: "With our Standard Grind service, we leave the mulch in the hole. It settles over time and makes excellent garden mulch. With our Full Service package, we backfill the hole and haul away the excess debris for a clean finish."
+    answer: "The wood chips stay in the ground hole — they settle over time and are great for soil health. After every job we level the grind area and rake the surrounding yard clean before we leave."
   },
   {
     question: "What about underground pipes or wires?",

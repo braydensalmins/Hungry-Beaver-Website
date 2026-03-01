@@ -11,7 +11,7 @@ import { HowToMeasure } from './HowToMeasure';
 const FAQ_ANSWER_PARAGRAPHS = [
   `When we arrive, we assess the stump, measure it at the widest point at ground level, and position our commercial grinder. The carbide-tipped cutting wheel works down through the wood in passes, grinding 6–8 inches below grade — deep enough to top-dress with topsoil and grow grass over.`,
 
-  `The machine leaves a pile of wood chips where the stump used to be. With our Standard Grind, we leave the mulch in place to decompose naturally. With Full Service, we backfill, rake the area clean, and haul the excess off your property. Most Phoenix Valley residential stump removal jobs take 30–90 minutes start to finish.`,
+  `The machine leaves a pile of wood chips where the stump used to be. We level the grind area, rake the surrounding yard clean, and leave your property tidy before we pack up. The wood chips remain in the ground hole and settle naturally over time — great for soil health. Most Phoenix Valley residential stump removal jobs take 30–90 minutes start to finish.`,
 ];
 
 const FAQ_SCHEMA = {
@@ -46,13 +46,13 @@ const STEPS = [
     number: '03',
     Icon: Leaf,
     name: 'Clean Up',
-    description: 'Wood chips are left in the hole (Standard) or backfilled and raked clean (Full Service). We\'ll ask which finish you prefer when we quote the job.',
+    description: 'Wood chips fill the ground hole and settle naturally. We level the grind area and rake the surrounding yard clean before we leave.',
   },
   {
     number: '04',
     Icon: Truck,
-    name: 'Haul Away',
-    description: 'Full Service includes hauling all excess debris off-site. Your yard is ready for topsoil and seed the same day we leave.',
+    name: 'Job Ready',
+    description: 'Your yard is leveled, raked, and clean. Ready for topsoil, sod, or seed the same day we leave.',
   },
 ];
 

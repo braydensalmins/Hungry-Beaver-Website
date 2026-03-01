@@ -55,7 +55,7 @@ const STEPS = [
     number: '04',
     Icon: Leaf,
     name: 'Clear & Go',
-    description: 'Full cleanup included. Excess debris hauled off-site. We leave your property job-ready for the next crew or topsoil.',
+    description: 'We level the grind area, rake the surrounding yard, and leave your property clean and job-ready for the next crew.',
   },
 ];
 

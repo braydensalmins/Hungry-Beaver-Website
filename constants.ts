@@ -18,7 +18,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     title: "Debris Cleanup",
-    description: "We can leave the mulch for your garden or haul it away for a clean finish.",
+    description: "We level the grind area, rake the surrounding yard, and leave your property clean after every job.",
     icon: Truck,
   },
 ];

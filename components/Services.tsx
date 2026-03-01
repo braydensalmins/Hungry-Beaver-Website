@@ -16,10 +16,10 @@ export const Services: React.FC = () => {
       subtext: "Save Your Mower"
     },
     {
-      title: "Clean Up & Haul Away",
-      description: "Standard service leaves the mulch in the hole — great for soil health. Full service means we backfill, rake the site clean, and haul all excess debris away for a finished look.",
+      title: "Clean Up",
+      description: "After every grind we level the area, rake the surrounding yard, and leave your property clean. Wood chips stay in the hole and settle naturally — great for soil health.",
       icon: Truck,
-      subtext: "Optional Add-on"
+      subtext: "Included"
     },
     {
       title: "Multi-Stump Jobs",
