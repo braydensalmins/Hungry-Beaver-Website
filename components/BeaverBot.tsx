@@ -63,7 +63,7 @@ export const BeaverBot: React.FC = () => {
       )}
 
       {isOpen && (
-        <div className="bg-white border-4 border-beaver-dark w-80 md:w-96 shadow-2xl flex flex-col h-[500px]">
+        <div className="bg-white border-4 border-beaver-dark w-72 sm:w-80 md:w-96 shadow-2xl flex flex-col h-[500px]">
           {/* Header */}
           <div className="bg-beaver-dark p-4 flex justify-between items-center border-b border-gray-700">
             <div className="flex items-center gap-3">
