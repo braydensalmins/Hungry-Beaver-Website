@@ -59,9 +59,6 @@ export const Gallery: React.FC = () => {
                 </div>
               </div>
 
-              {item.title && (
-                <h4 className="font-display font-bold text-2xl text-beaver-dark uppercase mt-2">{item.title}</h4>
-              )}
             </div>
           ))}
         </div>
