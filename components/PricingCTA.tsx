@@ -49,9 +49,9 @@ export const PricingCTA: React.FC = () => {
                 ))}
               </tbody>
               <tfoot>
-                <tr className="bg-beaver-dark text-white">
-                  <td colSpan={4} className="px-5 py-3 text-sm text-center">
-                    Have 2 or more stumps? Ask about our multi-stump discount — the more we grind, the better your per-stump rate.
+                <tr className="bg-beaver-orange text-white">
+                  <td colSpan={4} className="px-5 py-4 text-base font-bold text-center">
+                    Multi-Stump Discount: Have 2 or more stumps? The more we grind, the better your per-stump rate — ask us when you call.
                   </td>
                 </tr>
               </tfoot>
