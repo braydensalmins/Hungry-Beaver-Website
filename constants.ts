@@ -39,7 +39,7 @@ export const PRICING_TIERS: PricingTier[] = [
 export const PRICING_ROWS: PricingRow[] = [
   {
     size: 'Small – Up to 10"',
-    range: '$150 flat',
+    range: '~$150',
     factors: ['$150 minimum applies', 'Gate / yard access', 'Grinding depth'],
     standard: 'Commercial grinder on every job — not a rental',
   },
@@ -51,7 +51,7 @@ export const PRICING_ROWS: PricingRow[] = [
   },
   {
     size: 'Large – 20" to 30"',
-    range: '$200 – $450',
+    range: '$200 – $500',
     factors: ['Root complexity', 'Depth requested', 'Debris volume'],
     standard: 'Same-day availability for most Valley jobs',
   },
