@@ -1,39 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { X } from 'lucide-react';
 import { Button } from './Button';
+
+const images = [
+  { src: '/before-1.jpeg', label: 'Before' },
+  { src: '/after-1.jpeg',  label: 'After'  },
+  { src: '/before-2.jpeg', label: 'Before' },
+  { src: '/after-2.jpeg',  label: 'After'  },
+  { src: '/before-3.jpeg', label: 'Before' },
+  { src: '/after-3.jpeg',  label: 'After'  },
+];
 
 export const Gallery: React.FC = () => {
   const navigate = useNavigate();
-  const images = [
-    {
-      before: "/before-1.jpeg",
-      after: "/after-1.jpeg",
-      title: "30\" Tempe Oak Stump",
-      location: "Tempe, AZ",
-      time: "1 Hour",
-      cost: "$200"
-    },
-    {
-      before: "/before-2.jpeg",
-      after: "/after-2.jpeg",
-      title: "36\" Palm Tree Stump",
-      location: "Buckeye, AZ",
-      time: "1 Hour (tight gate access)",
-      cost: "$250"
-    },
-    {
-      before: "/before-3.jpeg",
-      after: "/after-3.jpeg",
-      title: "",
-      location: "",
-      time: "",
-      cost: ""
-    }
-  ];
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const handleContactClick = () => {
-    navigate('/#contact');
-  };
+  useEffect(() => {
+    if (!lightbox) return;
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [lightbox]);
 
   return (
     <section id="gallery" className="py-24 bg-beaver-cream">
@@ -44,31 +32,56 @@ export const Gallery: React.FC = () => {
           <p className="text-gray-500 mt-4 max-w-2xl mx-auto">See the difference professional grinding makes. We leave your yard ready for landscaping.</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 mb-12">
+        <div className="columns-2 md:columns-3 gap-4 mb-12">
           {images.map((item, idx) => (
-            <div key={idx} className="bg-white rounded-xl overflow-hidden ring-1 ring-gray-200 group hover:-translate-y-1 transition-transform duration-300">
-              {/* Image Grid */}
-              <div className="grid grid-cols-2 gap-px">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={item.before} alt="Stump before grinding" className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110" />
-                  <span className="absolute top-0 left-0 bg-beaver-dark/90 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">Before</span>
-                </div>
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={item.after} alt="Clean yard after professional stump grinding" className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110" />
-                  <span className="absolute top-0 left-0 bg-beaver-orange/90 text-beaver-dark text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">After</span>
-                </div>
-              </div>
-
+            <div
+              key={idx}
+              className="relative break-inside-avoid mb-4 overflow-hidden cursor-pointer group"
+              onClick={() => setLightbox(item.src)}
+            >
+              <img
+                src={item.src}
+                alt={`${item.label} stump grinding`}
+                className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className={`absolute top-0 left-0 text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm ${
+                item.label === 'Before'
+                  ? 'bg-beaver-dark/90 text-white'
+                  : 'bg-beaver-orange/90 text-beaver-dark'
+              }`}>
+                {item.label}
+              </span>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-           <Button variant="outline" onClick={handleContactClick}>
-              Contact Us to See More Work
-           </Button>
+          <Button variant="outline" onClick={() => navigate('/#contact')}>
+            Contact Us to See More Work
+          </Button>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white hover:text-beaver-orange transition-colors"
+            onClick={() => setLightbox(null)}
+          >
+            <X size={32} />
+          </button>
+          <img
+            src={lightbox}
+            alt="Gallery full view"
+            className="max-w-full max-h-[90vh] object-contain"
+            onClick={e => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 };
