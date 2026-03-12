@@ -44,7 +44,7 @@ export const Gallery: React.FC = () => {
           <p className="text-gray-500 mt-4 max-w-2xl mx-auto">See the difference professional grinding makes. We leave your yard ready for landscaping.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+        <div className="grid grid-cols-1 gap-10 mb-12">
           {images.map((item, idx) => (
             <div key={idx} className="bg-white rounded-xl overflow-hidden ring-1 ring-gray-200 group hover:-translate-y-1 transition-transform duration-300">
               {/* Image Grid */}
