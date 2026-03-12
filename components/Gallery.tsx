@@ -3,15 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { Button } from './Button';
 
-const images = [
-  { src: '/before-1.jpeg', label: 'Before' },
-  { src: '/after-1.jpeg',  label: 'After'  },
-  { src: '/before-2.jpeg', label: 'Before' },
-  { src: '/after-2.jpeg',  label: 'After'  },
-  { src: '/before-3.jpeg', label: 'Before' },
-  { src: '/after-3.jpeg',  label: 'After'  },
-  { src: '/before-4.jpeg', label: 'Before' },
-  { src: '/after-4.jpeg',  label: 'After'  },
+const pairs = [
+  { before: '/before-1.jpeg', after: '/after-1.jpeg' },
+  { before: '/before-2.jpeg', after: '/after-2.jpeg' },
+  { before: '/before-3.jpeg', after: '/after-3.jpeg' },
+  { before: '/before-4.jpeg', after: '/after-4.jpeg' },
 ];
 
 export const Gallery: React.FC = () => {
@@ -34,25 +30,17 @@ export const Gallery: React.FC = () => {
           <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">See the difference professional grinding makes. We leave your yard ready for landscaping.</p>
         </div>
 
-        <div className="columns-2 md:columns-3 gap-4 mb-12">
-          {images.map((item, idx) => (
-            <div
-              key={idx}
-              className="relative break-inside-avoid mb-4 overflow-hidden cursor-pointer group"
-              onClick={() => setLightbox(item.src)}
-            >
-              <img
-                src={item.src}
-                alt={`${item.label} stump grinding`}
-                className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className={`absolute top-0 left-0 text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm ${
-                item.label === 'Before'
-                  ? 'bg-beaver-dark/90 text-white'
-                  : 'bg-beaver-orange/90 text-beaver-dark'
-              }`}>
-                {item.label}
-              </span>
+        <div className="columns-1 md:columns-2 gap-4 mb-12">
+          {pairs.map((pair, idx) => (
+            <div key={idx} className="break-inside-avoid mb-4 grid grid-cols-2 gap-px group">
+              <div className="relative overflow-hidden cursor-pointer" onClick={() => setLightbox(pair.before)}>
+                <img src={pair.before} alt="Before stump grinding" className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105" />
+                <span className="absolute top-0 left-0 bg-beaver-dark/90 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">Before</span>
+              </div>
+              <div className="relative overflow-hidden cursor-pointer" onClick={() => setLightbox(pair.after)}>
+                <img src={pair.after} alt="After stump grinding" className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105" />
+                <span className="absolute top-0 left-0 bg-beaver-orange/90 text-beaver-dark text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">After</span>
+              </div>
             </div>
           ))}
         </div>
