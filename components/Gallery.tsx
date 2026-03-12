@@ -46,15 +46,15 @@ export const Gallery: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
           {images.map((item, idx) => (
-            <div key={idx} className="bg-white p-6 shadow-xl border-b-4 border-beaver-dark group hover:-translate-y-1 transition-transform duration-300">
+            <div key={idx} className="bg-white rounded-xl overflow-hidden ring-1 ring-gray-200 group hover:-translate-y-1 transition-transform duration-300">
               {/* Image Grid */}
-              <div className="grid grid-cols-2 gap-4 h-64">
-                <div className="relative h-full overflow-hidden rounded-sm">
-                  <img src={item.before} alt="Stump before grinding — 30 inch oak stump in Tempe AZ" className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110" />
+              <div className="grid grid-cols-2 gap-px">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img src={item.before} alt="Stump before grinding" className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110" />
                   <span className="absolute top-0 left-0 bg-beaver-dark/90 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">Before</span>
                 </div>
-                <div className="relative h-full overflow-hidden rounded-sm">
-                  <img src={item.after} alt="Clean yard after professional stump grinding in Tempe AZ" className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110" />
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img src={item.after} alt="Clean yard after professional stump grinding" className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110" />
                   <span className="absolute top-0 left-0 bg-beaver-orange/90 text-beaver-dark text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">After</span>
                 </div>
               </div>
