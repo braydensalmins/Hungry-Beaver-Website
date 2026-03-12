@@ -10,6 +10,8 @@ const images = [
   { src: '/after-2.jpeg',  label: 'After'  },
   { src: '/before-3.jpeg', label: 'Before' },
   { src: '/after-3.jpeg',  label: 'After'  },
+  { src: '/before-4.jpeg', label: 'Before' },
+  { src: '/after-4.jpeg',  label: 'After'  },
 ];
 
 export const Gallery: React.FC = () => {
@@ -27,9 +29,9 @@ export const Gallery: React.FC = () => {
     <section id="gallery" className="pb-24 bg-beaver-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Our Work</h2>
-          <h3 className="text-4xl font-display font-bold text-beaver-dark">BEFORE & AFTER</h3>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">See the difference professional grinding makes. We leave your yard ready for landscaping.</p>
+          <h2 className="text-lg text-beaver-orange font-bold tracking-widest uppercase mb-2">Our Work</h2>
+          <h3 className="text-5xl md:text-6xl font-display font-bold text-beaver-dark">BEFORE & AFTER</h3>
+          <p className="text-lg text-gray-500 mt-4 max-w-2xl mx-auto">See the difference professional grinding makes. We leave your yard ready for landscaping.</p>
         </div>
 
         <div className="columns-2 md:columns-3 gap-4 mb-12">
