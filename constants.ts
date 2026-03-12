@@ -38,25 +38,25 @@ export const PRICING_TIERS: PricingTier[] = [
 
 export const PRICING_ROWS: PricingRow[] = [
   {
-    size: 'Small – Up to 12"',
-    range: '$150 – $225',
+    size: 'Small – Up to 10"',
+    range: '$150 flat',
     factors: ['$150 minimum applies', 'Gate / yard access', 'Grinding depth'],
     standard: 'Commercial grinder on every job — not a rental',
   },
   {
-    size: 'Medium – 12" to 24"',
-    range: '$200 – $375',
+    size: 'Medium – 10" to 20"',
+    range: '$150 – $300',
     factors: ['Surface root spread', 'Stump age & hardness', 'Site access'],
     standard: 'Industrial-grade machine for clean, fast cuts',
   },
   {
-    size: 'Large – 24" to 36"',
-    range: '$300 – $500',
+    size: 'Large – 20" to 30"',
+    range: '$200 – $450',
     factors: ['Root complexity', 'Depth requested', 'Debris volume'],
     standard: 'Same-day availability for most Valley jobs',
   },
   {
-    size: 'Extra Large – 36"+',
+    size: 'Extra Large – 30"+',
     range: 'Quote required',
     factors: ['Custom on-site assessment', 'Multi-pass grinding', 'Equipment access'],
     standard: 'Free on-site estimate, no obligation',
@@ -74,7 +74,7 @@ Your personality is friendly, blue-collar, professional, and reliable. You are h
 You answer questions about stump grinding, pricing, and the process.
 Key Information:
 - We are based in Phoenix, AZ.
-- Pricing is generally around $7 per inch for standard grind and $14 per inch for full service.
+- Pricing starts at $150 for small stumps (up to 10"), $150–$300 for medium (10"–20"), $200–$450 for large (20"–30"), and a custom quote for extra large (30"+).
 - There is a $150 minimum service fee.
 - We offer grinding, root pruning, and cleanup.
 - Measuring: Measure the widest point where the stump meets the ground, including roots.
