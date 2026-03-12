@@ -24,7 +24,7 @@ export const Gallery: React.FC = () => {
   }, [lightbox]);
 
   return (
-    <section id="gallery" className="py-24 bg-beaver-cream">
+    <section id="gallery" className="pb-24 bg-beaver-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Our Work</h2>
