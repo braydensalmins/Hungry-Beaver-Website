@@ -34,11 +34,11 @@ export const Gallery: React.FC = () => {
           {pairs.map((pair, idx) => (
             <div key={idx} className="break-inside-avoid mb-4 grid grid-cols-2 gap-px group">
               <div className="relative overflow-hidden cursor-pointer" onClick={() => setLightbox(pair.before)}>
-                <img src={pair.before} alt="Before stump grinding" className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105" />
+                <img src={pair.before} alt="Tree stump before professional grinding — Phoenix Valley, AZ" className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute top-0 left-0 bg-beaver-dark/90 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">Before</span>
               </div>
               <div className="relative overflow-hidden cursor-pointer" onClick={() => setLightbox(pair.after)}>
-                <img src={pair.after} alt="After stump grinding" className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105" />
+                <img src={pair.after} alt="Yard after stump grinding — clean, level, ready for landscaping" className="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute top-0 left-0 bg-beaver-orange/90 text-beaver-dark text-xs font-bold px-3 py-1 uppercase tracking-wider backdrop-blur-sm">After</span>
               </div>
             </div>

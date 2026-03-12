@@ -7,6 +7,10 @@ import { PRICING_ROWS } from '../constants';
 export const CalculatorPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Stump Grinding Cost Estimator | Hungry Beaver';
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) desc.setAttribute('content', 'Estimate your stump grinding cost instantly with our free calculator. Serving the Greater Phoenix Valley.');
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/calculator');
   }, []);
 
   return (
