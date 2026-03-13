@@ -18,6 +18,7 @@ import { BeaverBot } from './components/BeaverBot';
 import { StickyMobileBar } from './components/StickyMobileBar';
 import { ScrollToHash } from './components/ScrollToHash';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <StickyMobileBar />
       </div>
       <Analytics />
+      <SpeedInsights />
     </Router>
   );
 }
