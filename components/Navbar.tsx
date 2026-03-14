@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
             <img
               src="/Hungry Beaver Stump Grinding Favicon.png"
               alt="Hungry Beaver Stump Grinding Logo"
-              className="h-20 md:h-24 w-auto object-contain rounded-md relative top-[1px]"
+              className="h-[88px] md:h-24 w-auto object-contain rounded-md relative top-[1px]"
             />
             <div className="hidden md:flex flex-col items-center">
               <span className="text-xl md:text-2xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
             <span className="text-xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
               HUNGRY BEAVER
             </span>
-            <span className="text-sm font-display font-bold tracking-[0.18em] text-white uppercase leading-none">
+            <span className="text-sm font-display font-bold tracking-[0.08em] md:tracking-[0.18em] text-white uppercase leading-none whitespace-nowrap">
               Stump Grinding
             </span>
           </Link>
