@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="bg-beaver-dark text-white sticky top-0 z-50 border-b-4 border-beaver-orange shadow-lg">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="relative flex justify-center md:justify-between h-24 items-center">
+        <div className="grid grid-cols-3 items-center h-24 md:flex md:justify-between">
           {/* Logo / Brand */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-3 md:gap-6">
             <img
@@ -53,7 +53,7 @@ export const Navbar: React.FC = () => {
               alt="Hungry Beaver Stump Grinding Logo"
               className="h-20 md:h-24 w-auto object-contain rounded-md relative top-[1px]"
             />
-            <div className="flex flex-col items-center">
+            <div className="hidden md:flex flex-col items-center">
               <span className="text-xl md:text-2xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
                 HUNGRY BEAVER
               </span>
@@ -61,6 +61,16 @@ export const Navbar: React.FC = () => {
                 Stump Grinding
               </span>
             </div>
+          </Link>
+
+          {/* Mobile-only centered brand text */}
+          <Link to="/" className="flex flex-col items-center justify-center md:hidden">
+            <span className="text-xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
+              HUNGRY BEAVER
+            </span>
+            <span className="text-sm font-display font-bold tracking-[0.18em] text-white uppercase leading-none">
+              Stump Grinding
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -123,7 +133,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden absolute right-0 flex items-center gap-4">
+          <div className="md:hidden flex justify-end items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
