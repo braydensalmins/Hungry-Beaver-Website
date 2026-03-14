@@ -12,7 +12,7 @@ export const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-2 md:pt-24">
+    <div className="pt-2">
       <ScrollReveal>
         <Contact />
       </ScrollReveal>
