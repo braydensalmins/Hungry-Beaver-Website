@@ -65,10 +65,10 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile-only centered brand text */}
           <Link to="/" className="flex flex-col items-center justify-center md:hidden">
-            <span className="text-xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
+            <span className="text-2xl font-display font-bold text-beaver-orange tracking-tighter leading-none whitespace-nowrap">
               HUNGRY BEAVER
             </span>
-            <span className="text-sm font-display font-bold tracking-[0.08em] md:tracking-[0.18em] text-white uppercase leading-none whitespace-nowrap">
+            <span className="text-base font-display font-bold tracking-[0.06em] text-white uppercase leading-none whitespace-nowrap">
               Stump Grinding
             </span>
           </Link>
