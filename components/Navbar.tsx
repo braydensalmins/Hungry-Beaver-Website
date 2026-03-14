@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="flex justify-between h-24 items-center">
           {/* Logo / Brand */}
-          <Link to="/" className="flex-shrink-0 flex items-center gap-6">
+          <Link to="/" className="flex-shrink-0 flex items-center gap-3 md:gap-6">
             <img
               src="/Hungry Beaver Stump Grinding Favicon.png"
               alt="Hungry Beaver Stump Grinding Logo"
