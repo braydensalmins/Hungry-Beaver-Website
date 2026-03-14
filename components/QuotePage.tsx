@@ -12,7 +12,7 @@ export const QuotePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24">
+    <div className="pt-0">
       <ScrollReveal>
         <Contact />
       </ScrollReveal>

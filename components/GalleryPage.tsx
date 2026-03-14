@@ -12,7 +12,7 @@ export const GalleryPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24"> {/* Add padding for fixed navbar */}
+    <div className="pt-0">
       <ScrollReveal>
         <Gallery />
       </ScrollReveal>

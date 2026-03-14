@@ -12,7 +12,7 @@ export const ServiceAreasPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 min-h-screen bg-beaver-cream">
+    <div className="min-h-screen bg-beaver-cream">
       <div className="bg-beaver-dark text-white py-16 text-center">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-display font-bold uppercase mb-4">Service Areas</h1>
