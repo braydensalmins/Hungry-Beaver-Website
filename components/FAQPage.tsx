@@ -37,7 +37,7 @@ export const FAQPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24"> {/* Add padding for fixed navbar */}
+    <div className="pt-6 md:pt-24"> {/* Add padding for fixed navbar */}
       <ScrollReveal>
         <FAQ />
       </ScrollReveal>

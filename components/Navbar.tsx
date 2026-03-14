@@ -54,10 +54,10 @@ export const Navbar: React.FC = () => {
               className="h-20 md:h-24 w-auto object-contain rounded-md relative top-[1px]"
             />
             <div className="flex flex-col items-center">
-              <span className="text-lg md:text-2xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
+              <span className="text-xl md:text-2xl font-display font-bold text-beaver-orange tracking-tighter leading-none">
                 HUNGRY BEAVER
               </span>
-              <span className="text-xs md:text-sm font-display font-bold tracking-[0.18em] text-white uppercase leading-none">
+              <span className="text-sm font-display font-bold tracking-[0.18em] text-white uppercase leading-none">
                 Stump Grinding
               </span>
             </div>
