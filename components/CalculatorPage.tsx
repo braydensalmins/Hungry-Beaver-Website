@@ -14,7 +14,7 @@ export const CalculatorPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Page Header */}
       <div className="bg-beaver-dark text-white py-16 text-center">
         <div className="max-w-7xl mx-auto px-4">

@@ -12,7 +12,7 @@ export const GalleryPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-0">
+    <div className="pt-6">
       <ScrollReveal>
         <Gallery />
       </ScrollReveal>
