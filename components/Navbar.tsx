@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="bg-beaver-dark text-white sticky top-0 z-50 border-b-4 border-beaver-orange shadow-lg">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="flex justify-between h-24 items-center">
+        <div className="relative flex justify-center md:justify-between h-24 items-center">
           {/* Logo / Brand */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-3 md:gap-6">
             <img
@@ -123,7 +123,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden absolute right-0 flex items-center gap-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
