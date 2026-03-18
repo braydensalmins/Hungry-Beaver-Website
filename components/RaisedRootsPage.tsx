@@ -71,6 +71,14 @@ export const RaisedRootsPage: React.FC = () => {
       document.head.appendChild(meta);
     }
     meta.content = 'Raised root grinding across the Greater Phoenix Valley. We grind surface roots flush to grade — no excavation, no lawn damage. Protects mowers, hardscape, and irrigation. Call 480-283-4560.';
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/raised-roots');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', 'Raised Root Grinding | Hungry Beaver Stump Grinding');
+    if (ogDesc) ogDesc.setAttribute('content', 'Raised root grinding across the Greater Phoenix Valley. We grind surface roots flush to grade — no excavation, no lawn damage. Protects mowers, hardscape, and irrigation. Call 480-283-4560.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/raised-roots');
   }, []);
 
   return (

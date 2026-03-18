@@ -35,4 +35,24 @@
     <lastmod>2026-02-25</lastmod>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://hungrybeaverstumpgrinding.com/services/residential</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hungrybeaverstumpgrinding.com/services/commercial</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hungrybeaverstumpgrinding.com/services/municipal</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hungrybeaverstumpgrinding.com/services/raised-roots</loc>
+    <lastmod>2026-03-17</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>

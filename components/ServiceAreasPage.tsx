@@ -9,6 +9,12 @@ export const ServiceAreasPage: React.FC = () => {
     if (desc) desc.setAttribute('content', 'Hungry Beaver Stump Grinding serves Phoenix, Scottsdale, Mesa, Tempe, Gilbert, Chandler, Glendale, Peoria, Surprise, Queen Creek, and more across the Greater Phoenix Valley.');
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/service-areas');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', 'Service Areas | Hungry Beaver Stump Grinding');
+    if (ogDesc) ogDesc.setAttribute('content', 'Hungry Beaver Stump Grinding serves Phoenix, Scottsdale, Mesa, Tempe, Gilbert, Chandler, Glendale, Peoria, Surprise, Queen Creek, and more across the Greater Phoenix Valley.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/service-areas');
   }, []);
 
   return (

@@ -68,6 +68,14 @@ export const ResidentialPage: React.FC = () => {
       document.head.appendChild(meta);
     }
     meta.content = 'Hungry Beaver Stump Grinding offers fast, affordable residential stump removal across the Greater Phoenix Valley. No hidden fees. Same-day estimates. Call 480-283-4560.';
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/residential');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', 'Residential Stump Grinding | Hungry Beaver Stump Grinding');
+    if (ogDesc) ogDesc.setAttribute('content', 'Hungry Beaver Stump Grinding offers fast, affordable residential stump removal across the Greater Phoenix Valley. No hidden fees. Same-day estimates. Call 480-283-4560.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/residential');
   }, []);
 
   return (

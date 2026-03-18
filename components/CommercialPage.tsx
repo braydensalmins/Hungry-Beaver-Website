@@ -71,6 +71,14 @@ export const CommercialPage: React.FC = () => {
       document.head.appendChild(meta);
     }
     meta.content = 'Commercial stump grinding for HOAs, property managers, landscaping contractors, and developers across the Greater Phoenix Valley. Volume discounts available. Call 480-283-4560.';
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/commercial');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', 'Commercial Stump Grinding | Hungry Beaver Stump Grinding');
+    if (ogDesc) ogDesc.setAttribute('content', 'Commercial stump grinding for HOAs, property managers, landscaping contractors, and developers across the Greater Phoenix Valley. Volume discounts available. Call 480-283-4560.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/commercial');
   }, []);
 
   return (

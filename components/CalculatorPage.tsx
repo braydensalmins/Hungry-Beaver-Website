@@ -11,6 +11,12 @@ export const CalculatorPage: React.FC = () => {
     if (desc) desc.setAttribute('content', 'Estimate your stump grinding cost instantly with our free calculator. Serving the Greater Phoenix Valley.');
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/calculator');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding Cost Estimator | Hungry Beaver');
+    if (ogDesc) ogDesc.setAttribute('content', 'Estimate your stump grinding cost instantly with our free calculator. Serving the Greater Phoenix Valley.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/calculator');
   }, []);
 
   return (

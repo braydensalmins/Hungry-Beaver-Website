@@ -14,6 +14,12 @@ export const Home: React.FC = () => {
     if (desc) desc.setAttribute('content', 'Fast, affordable stump removal across the Phoenix Valley. Licensed and insured. Text us a photo for a same-day estimate.');
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding Phoenix AZ | Hungry Beaver Stump Grinding');
+    if (ogDesc) ogDesc.setAttribute('content', 'Fast, affordable stump removal across the Phoenix Valley. Licensed and insured. Text us a photo for a same-day estimate.');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/');
   }, []);
 
   return (
