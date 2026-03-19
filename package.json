@@ -20,9 +20,10 @@
     "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^143.0.4",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
-    "puppeteer": "^24.39.1",
+    "puppeteer-core": "^24.39.1",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

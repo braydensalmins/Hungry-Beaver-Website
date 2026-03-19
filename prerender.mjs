@@ -8,9 +8,10 @@
  * Full pipeline: npm run prerender  (runs vite build first)
  */
 
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import { spawn } from 'child_process';
-import { writeFileSync, mkdirSync } from 'fs';
+import { existsSync, writeFileSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -95,15 +96,30 @@ async function prerenderRoute(page, route) {
   console.log(`  Saved → ${filePath.replace(__dirname + '/', '')}`);
 }
 
+// On Linux (Vercel/CI) use @sparticuz/chromium; on macOS use system Chrome.
+async function getBrowserOptions() {
+  if (process.platform === 'linux') {
+    return {
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+    };
+  }
+  const macPaths = [
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    '/Applications/Chromium.app/Contents/MacOS/Chromium',
+  ];
+  const executablePath = macPaths.find(existsSync);
+  if (!executablePath) throw new Error('No Chrome found locally. Install Google Chrome or Chromium.');
+  return { executablePath, headless: true, args: ['--no-sandbox'] };
+}
+
 async function main() {
   console.log('Starting preview server...');
   const server = await startPreviewServer();
   console.log(`Preview server running on port ${PREVIEW_PORT}\n`);
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  const browser = await puppeteer.launch(await getBrowserOptions());
 
   try {
     const page = await browser.newPage();
