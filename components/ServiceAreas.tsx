@@ -3,20 +3,20 @@ import { MapPin } from 'lucide-react';
 import { SERVICE_AREAS } from '../constants';
 
 const CITY_BLURBS: Record<string, string> = {
-  Phoenix: "Phoenix stump grinding — same-day estimates available.",
-  Scottsdale: "Scottsdale stump removal — residential and estate properties.",
-  Mesa: "Mesa stump grinding — fast scheduling, reliable crews.",
-  Tempe: "Tempe stump removal — near ASU and surrounding neighborhoods.",
-  Gilbert: "Gilbert stump grinding — new construction and established yards.",
-  Chandler: "Chandler stump removal — HOA-compliant grinding available.",
-  Glendale: "Glendale stump grinding — sports district to quiet suburbs.",
-  Peoria: "Peoria stump removal — same-day text estimates.",
-  Surprise: "Surprise stump grinding — West Valley coverage.",
-  "Queen Creek": "Queen Creek stump removal — rural lots and subdivisions.",
-  Ahwatukee: "Ahwatukee stump grinding — South Mountain area coverage.",
-  Avondale: "Avondale stump removal — West Valley scheduling available.",
-  Goodyear: "Goodyear stump grinding — new communities and established properties.",
-  "Paradise Valley": "Paradise Valley stump removal — luxury estates and hillside lots.",
+  Phoenix: "Phoenix is our home base and our most active service area. From Arcadia and Biltmore to South Phoenix and the West Side, we grind stumps across every Phoenix neighborhood. Whether it's an old citrus tree stump in a historic yard or a freshly removed mesquite, we offer same-day estimates and fast scheduling throughout the city. Call or text for a free Phoenix stump grinding quote.",
+  Scottsdale: "Scottsdale properties — from Old Town bungalows to North Scottsdale estates — demand clean, detail-oriented work. We bring compact equipment that won't tear up pavers or manicured lawns, and we're experienced working on high-end residential lots where appearance matters. Same-day estimates available for all Scottsdale stump grinding and removal jobs.",
+  Mesa: "Mesa is one of our busiest service areas, a mix of established neighborhoods and newer subdivisions across a huge footprint. Whether you're near downtown Mesa, Eastmark, or anywhere in between, we offer reliable stump grinding with fast turnarounds and upfront pricing. Text us a photo for a same-day Mesa stump grinding estimate.",
+  Tempe: "Tempe's mature tree canopy means lots of older stumps — especially around neighborhoods near ASU, Tempe Town Lake, and South Tempe. We work efficiently on smaller residential lots common in the area and can handle stumps left behind from city tree removals or HOA-mandated work. Contact us for fast Tempe stump removal scheduling.",
+  Gilbert: "Gilbert's rapid growth means plenty of new construction lots and established suburban yards that need stump grinding done right. We're familiar with the irrigation systems common in Gilbert neighborhoods and take care to avoid underground lines before we start. Same-day estimates available throughout Gilbert.",
+  Chandler: "Chandler homeowners and HOAs trust us for clean, compliant stump grinding that meets community standards. We work in subdivisions throughout Chandler — from Ocotillo to Sun Lakes — and can coordinate with HOA requirements on timing and cleanup. Get a free Chandler stump grinding quote today.",
+  Glendale: "From the sports district near State Farm Stadium to quiet residential streets throughout Glendale, we provide fast and affordable stump grinding across the city. We handle both front and backyard stumps with equipment compact enough for tight gate access. Text us a photo for a same-day Glendale estimate.",
+  Peoria: "Peoria's blend of newer master-planned communities and established neighborhoods keeps us busy on the northwest side of the Valley. We offer same-day text estimates for Peoria stump grinding jobs and can typically schedule within 1–2 days. No stump too big or too awkward — we come prepared.",
+  Surprise: "We cover the entire West Valley including Surprise, where large lots and mature desert trees often leave behind stubborn stumps. Whether it's a single backyard stump or multiple stumps on a larger property, we provide honest pricing and show up on time. Call or text for a Surprise stump grinding quote.",
+  "Queen Creek": "Queen Creek's rural lots, horse properties, and newer subdivisions all present unique stump grinding challenges — and we're equipped for all of them. We handle multi-stump jobs on acreage properties as well as single stumps in tight suburban backyards. Serving Queen Creek and the surrounding San Tan Valley area.",
+  Ahwatukee: "Ahwatukee's South Mountain location and mature landscaping make it one of the more tree-heavy areas in the Valley. We serve the Ahwatukee Foothills neighborhood regularly and are familiar with the lot layouts and common tree species in the area. Fast, clean stump grinding — text us a photo for a same-day estimate.",
+  Avondale: "Avondale is growing fast, and with new construction and tree removals happening throughout the city, stump grinding demand is high. We serve residential and commercial customers in Avondale with the same upfront pricing and professional service we bring to every job. Contact us for same-day West Valley scheduling.",
+  Goodyear: "Goodyear's newer communities and established properties both benefit from clean stump removal that protects turf, irrigation systems, and surrounding landscaping. We're experienced working in Goodyear subdivisions and can work around sprinkler lines and landscaping features. Get a free Goodyear stump grinding estimate today.",
+  "Paradise Valley": "Paradise Valley luxury estates require a higher level of care — and we deliver it. We use compact, precise equipment to protect premium landscaping, pavers, and hardscape, and we clean up completely before we leave. Hillside lots and complex root systems are no problem. Text or call us for a Paradise Valley stump grinding consultation.",
 };
 
 export const ServiceAreas: React.FC = () => {
