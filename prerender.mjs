@@ -122,9 +122,12 @@ function routeToFilePath(route) {
   if (route === '/') {
     return join(__dirname, 'dist', 'index.html');
   }
-  // e.g. /gallery → dist/gallery/index.html
-  // e.g. /services/residential → dist/services/residential/index.html
-  return join(__dirname, 'dist', ...route.split('/').filter(Boolean), 'index.html');
+  // e.g. /gallery → dist/gallery.html
+  // e.g. /services/residential → dist/services/residential.html
+  // Vercel's cleanUrls:true serves dist/faq.html for /faq automatically.
+  const parts = route.slice(1).split('/');
+  const filename = parts.pop() + '.html';
+  return join(__dirname, 'dist', ...parts, filename);
 }
 
 async function prerenderRoute(page, route) {
@@ -136,26 +139,12 @@ async function prerenderRoute(page, route) {
   // Wait for React to fully render the page (footer is present on all pages)
   await page.waitForSelector('footer', { timeout: 15_000 });
 
-  // Scroll to bottom and back to top so IntersectionObserver fires for all
-  // ScrollReveal sections (they start opacity-0 and only reveal on intersection)
-  await page.evaluate(async () => {
-    await new Promise(resolve => {
-      const distance = 300;
-      const delay = 80;
-      let scrolled = 0;
-      const timer = setInterval(() => {
-        window.scrollBy(0, distance);
-        scrolled += distance;
-        if (scrolled >= document.body.scrollHeight) {
-          clearInterval(timer);
-          window.scrollTo(0, 0);
-          resolve();
-        }
-      }, delay);
-    });
+  // Override ScrollReveal opacity-0/translate classes so headless Chrome captures
+  // all content regardless of IntersectionObserver (which doesn't fire in headless).
+  await page.addStyleTag({
+    content: '.opacity-0 { opacity: 1 !important; } .translate-y-12 { transform: none !important; }'
   });
-  // Wait for React to re-render with isVisible=true before capture
-  await new Promise(r => setTimeout(r, 600));
+  await new Promise(r => setTimeout(r, 300));
 
   // Hardcode the correct meta tags for this route so Google sees them without JS
   const { title, description } = PAGE_META[route];
