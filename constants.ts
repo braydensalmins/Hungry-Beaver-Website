@@ -66,7 +66,9 @@ export const PRICING_ROWS: PricingRow[] = [
 export const SERVICE_AREAS = [
   "Phoenix", "Scottsdale", "Mesa", "Tempe", "Gilbert",
   "Chandler", "Glendale", "Peoria", "Surprise",
-  "Queen Creek", "Ahwatukee", "Avondale", "Goodyear", "Paradise Valley"
+  "Queen Creek", "Ahwatukee", "Avondale", "Goodyear", "Paradise Valley",
+  "Buckeye", "Cave Creek", "Anthem", "Apache Junction",
+  "Litchfield Park", "Fountain Hills"
 ];
 
 export const BEAVER_SYSTEM_INSTRUCTION = `You are "Chomp", the AI mascot for Hungry Beaver Stump Grinding. 

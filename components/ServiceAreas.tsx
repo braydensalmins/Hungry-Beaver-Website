@@ -17,6 +17,12 @@ const CITY_BLURBS: Record<string, string> = {
   Avondale: "Avondale is growing fast, and with new construction and tree removals happening throughout the city, stump grinding demand is high. We serve residential and commercial customers in Avondale with the same upfront pricing and professional service we bring to every job. Contact us for same-day West Valley scheduling.",
   Goodyear: "Goodyear's newer communities and established properties both benefit from clean stump removal that protects turf, irrigation systems, and surrounding landscaping. We're experienced working in Goodyear subdivisions and can work around sprinkler lines and landscaping features. Get a free Goodyear stump grinding estimate today.",
   "Paradise Valley": "Paradise Valley luxury estates require a higher level of care — and we deliver it. We use compact, precise equipment to protect premium landscaping, pavers, and hardscape, and we clean up completely before we leave. Hillside lots and complex root systems are no problem. Text or call us for a Paradise Valley stump grinding consultation.",
+  Buckeye: "Buckeye is one of the fastest-growing cities in the entire country, and with that growth comes plenty of new construction lots and established properties that need stump grinding done right. We serve residential and commercial customers throughout Buckeye with upfront pricing and fast scheduling. Text us a photo for a same-day West Valley estimate.",
+  "Cave Creek": "Cave Creek's desert terrain and custom home lots often come with large, deep-rooted stumps that require serious equipment to handle properly. We're experienced working on rural and semi-rural properties in the Cave Creek area and bring the right machine for the job every time. Call or text for a free Cave Creek stump grinding estimate.",
+  Anthem: "Anthem's master-planned communities and manicured HOA landscapes demand clean, precise stump grinding with zero mess left behind. We work within HOA guidelines on timing and cleanup and leave your property looking better than we found it. Same-day estimates available for Anthem and the surrounding north Valley area.",
+  "Apache Junction": "Apache Junction's larger lots and desert properties often feature mature trees with extensive root systems — exactly what our commercial-grade equipment is built for. Whether it's a single stump or multiple stumps across an acreage property, we get it done efficiently and at honest per-inch pricing. Contact us for Apache Junction stump grinding scheduling.",
+  "Litchfield Park": "Litchfield Park's well-established neighborhoods and mature landscaping make it one of the more tree-heavy communities on the West Side. We serve residential customers throughout Litchfield Park with the same fast turnarounds and clean results we bring to every job across the Valley. Text us a photo for a free estimate.",
+  "Fountain Hills": "Fountain Hills properties — from hillside estates to lakeside lots — require careful, detail-oriented stump grinding that protects surrounding landscaping and hardscape. We're equipped for sloped terrain and complex root systems common in the area. Call or text for a Fountain Hills stump grinding quote.",
 };
 
 export const ServiceAreas: React.FC = () => {
@@ -28,7 +34,7 @@ export const ServiceAreas: React.FC = () => {
           <h3 className="text-4xl md:text-5xl font-display font-bold text-beaver-dark">GREATER PHOENIX VALLEY</h3>
           <div className="w-24 h-2 bg-beaver-orange mx-auto mt-6 mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We serve 14+ cities across the Valley. Text us a photo for a same-day estimate — no matter where you are.
+            We serve 20+ cities across the Valley. Text us a photo for a same-day estimate — no matter where you are.
           </p>
         </div>
 
