@@ -136,6 +136,27 @@ async function prerenderRoute(page, route) {
   // Wait for React to fully render the page (footer is present on all pages)
   await page.waitForSelector('footer', { timeout: 15_000 });
 
+  // Scroll to bottom and back to top so IntersectionObserver fires for all
+  // ScrollReveal sections (they start opacity-0 and only reveal on intersection)
+  await page.evaluate(async () => {
+    await new Promise(resolve => {
+      const distance = 300;
+      const delay = 80;
+      let scrolled = 0;
+      const timer = setInterval(() => {
+        window.scrollBy(0, distance);
+        scrolled += distance;
+        if (scrolled >= document.body.scrollHeight) {
+          clearInterval(timer);
+          window.scrollTo(0, 0);
+          resolve();
+        }
+      }, delay);
+    });
+  });
+  // Wait for React to re-render with isVisible=true before capture
+  await new Promise(r => setTimeout(r, 600));
+
   // Hardcode the correct meta tags for this route so Google sees them without JS
   const { title, description } = PAGE_META[route];
   const canonicalUrl = route === '/' ? `${SITE}/` : `${SITE}${route}`;
