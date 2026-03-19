@@ -19,6 +19,55 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const PREVIEW_PORT = 4173;
 const BASE_URL = `http://localhost:${PREVIEW_PORT}`;
+const SITE = 'https://hungrybeaverstumpgrinding.com';
+
+// Canonical meta copy for each route — injected directly into the HTML snapshot.
+const PAGE_META = {
+  '/': {
+    title: 'Stump Grinding Phoenix AZ | Hungry Beaver Stump Grinding',
+    description: "Phoenix's stump grinding specialists. Fast, affordable, and mess-free. Residential, commercial & municipal service across the Valley. Get a free quote today.",
+  },
+  '/gallery': {
+    title: 'Stump Grinding Before & After | Hungry Beaver Phoenix AZ',
+    description: 'See real stump grinding results from jobs across the Phoenix Valley. Residential, commercial stump removals — all done by Hungry Beaver.',
+  },
+  '/faq': {
+    title: 'Stump Grinding FAQs | Hungry Beaver Phoenix AZ',
+    description: "Got questions about stump grinding in Phoenix? We answer the most common ones — cost, timeline, what's left behind, and more. No fluff, just answers.",
+  },
+  '/calculator': {
+    title: 'Stump Grinding Cost Calculator | Hungry Beaver Phoenix',
+    description: 'Estimate your stump grinding cost instantly. No email required. Based on real Phoenix Valley pricing — get a ballpark in under a minute.',
+  },
+  '/quote': {
+    title: 'Get a Free Stump Grinding Quote | Hungry Beaver Phoenix',
+    description: 'Request a free, no-obligation stump grinding quote anywhere in the Phoenix Valley. Fast response, upfront pricing, no surprises.',
+  },
+  '/contact': {
+    title: 'Get a Free Stump Grinding Quote | Hungry Beaver Phoenix',
+    description: 'Ready to get rid of that stump? Contact Hungry Beaver Stump Grinding for a free, no-obligation quote anywhere in the Phoenix Valley.',
+  },
+  '/service-areas': {
+    title: 'Stump Grinding Service Areas | Phoenix Valley | Hungry Beaver',
+    description: 'Hungry Beaver serves the entire Phoenix Valley — Phoenix, Scottsdale, Chandler, Gilbert, Mesa, Glendale & more. Find out if we serve your area.',
+  },
+  '/services/residential': {
+    title: 'Residential Stump Grinding Phoenix AZ | Hungry Beaver',
+    description: 'Get rid of that backyard stump for good. Hungry Beaver specializes in residential stump grinding across Phoenix & the Valley. Fast quotes, clean results.',
+  },
+  '/services/commercial': {
+    title: 'Commercial Stump Grinding Phoenix AZ | Hungry Beaver',
+    description: 'Stump grinding for commercial properties in Phoenix. Minimize downtime, maximize curb appeal. Bonded, insured, and built for bigger jobs.',
+  },
+  '/services/municipal': {
+    title: 'Municipal Stump Grinding Phoenix AZ | Hungry Beaver',
+    description: 'Reliable stump grinding for cities, parks, and public spaces across the Phoenix Valley. Licensed, insured, and equipped for high-volume municipal projects.',
+  },
+  '/services/raised-roots': {
+    title: 'Raised Root Grinding Phoenix AZ | Hungry Beaver',
+    description: 'Raised roots cracking your sidewalk or driveway? We grind surface roots fast and clean. Serving Phoenix, Scottsdale, Chandler & the East Valley.',
+  },
+};
 
 const ROUTES = [
   '/',
@@ -86,6 +135,19 @@ async function prerenderRoute(page, route) {
 
   // Wait for React to fully render the page (footer is present on all pages)
   await page.waitForSelector('footer', { timeout: 15_000 });
+
+  // Hardcode the correct meta tags for this route so Google sees them without JS
+  const { title, description } = PAGE_META[route];
+  const canonicalUrl = route === '/' ? `${SITE}/` : `${SITE}${route}`;
+  await page.evaluate(({ title, description, canonicalUrl }) => {
+    document.title = title;
+    const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+    set('meta[name="description"]', 'content', description);
+    set('meta[property="og:title"]', 'content', title);
+    set('meta[property="og:description"]', 'content', description);
+    set('meta[property="og:url"]', 'content', canonicalUrl);
+    set('link[rel="canonical"]', 'href', canonicalUrl);
+  }, { title, description, canonicalUrl });
 
   const html = await page.evaluate(() => '<!DOCTYPE html>\n' + document.documentElement.outerHTML);
 

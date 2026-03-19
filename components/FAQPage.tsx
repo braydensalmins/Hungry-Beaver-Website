@@ -23,16 +23,16 @@ const FAQ_SCHEMA = {
 
 export const FAQPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Stump Grinding FAQ | Hungry Beaver — Phoenix, AZ';
+    document.title = 'Stump Grinding FAQs | Hungry Beaver Phoenix AZ';
     const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', 'Answers to common questions about stump grinding cost, depth, timing, and service in Phoenix, Scottsdale, Mesa, Gilbert, and more.');
+    if (desc) desc.setAttribute('content', "Got questions about stump grinding in Phoenix? We answer the most common ones — cost, timeline, what's left behind, and more. No fluff, just answers.");
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/faq');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding FAQ | Hungry Beaver — Phoenix, AZ');
-    if (ogDesc) ogDesc.setAttribute('content', 'Answers to common questions about stump grinding cost, depth, timing, and service in Phoenix, Scottsdale, Mesa, Gilbert, and more.');
+    if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding FAQs | Hungry Beaver Phoenix AZ');
+    if (ogDesc) ogDesc.setAttribute('content', "Got questions about stump grinding in Phoenix? We answer the most common ones — cost, timeline, what's left behind, and more. No fluff, just answers.");
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/faq');
     const script = document.createElement('script');
     script.type = 'application/ld+json';

@@ -60,21 +60,21 @@ export const ResidentialPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Residential Stump Grinding | Hungry Beaver Stump Grinding';
+    document.title = 'Residential Stump Grinding Phoenix AZ | Hungry Beaver';
     let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (!meta) {
       meta = document.createElement('meta');
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.content = 'Hungry Beaver Stump Grinding offers fast, affordable residential stump removal across the Greater Phoenix Valley. No hidden fees. Same-day estimates. Call 480-283-4560.';
+    meta.content = 'Get rid of that backyard stump for good. Hungry Beaver specializes in residential stump grinding across Phoenix & the Valley. Fast quotes, clean results.';
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/residential');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Residential Stump Grinding | Hungry Beaver Stump Grinding');
-    if (ogDesc) ogDesc.setAttribute('content', 'Hungry Beaver Stump Grinding offers fast, affordable residential stump removal across the Greater Phoenix Valley. No hidden fees. Same-day estimates. Call 480-283-4560.');
+    if (ogTitle) ogTitle.setAttribute('content', 'Residential Stump Grinding Phoenix AZ | Hungry Beaver');
+    if (ogDesc) ogDesc.setAttribute('content', 'Get rid of that backyard stump for good. Hungry Beaver specializes in residential stump grinding across Phoenix & the Valley. Fast quotes, clean results.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/residential');
   }, []);
 

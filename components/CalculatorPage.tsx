@@ -6,16 +6,16 @@ import { PRICING_ROWS } from '../constants';
 
 export const CalculatorPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Stump Grinding Cost Estimator | Hungry Beaver';
+    document.title = 'Stump Grinding Cost Calculator | Hungry Beaver Phoenix';
     const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute('content', 'Estimate your stump grinding cost instantly with our free calculator. Serving the Greater Phoenix Valley.');
+    if (desc) desc.setAttribute('content', 'Estimate your stump grinding cost instantly. No email required. Based on real Phoenix Valley pricing — get a ballpark in under a minute.');
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/calculator');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding Cost Estimator | Hungry Beaver');
-    if (ogDesc) ogDesc.setAttribute('content', 'Estimate your stump grinding cost instantly with our free calculator. Serving the Greater Phoenix Valley.');
+    if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding Cost Calculator | Hungry Beaver Phoenix');
+    if (ogDesc) ogDesc.setAttribute('content', 'Estimate your stump grinding cost instantly. No email required. Based on real Phoenix Valley pricing — get a ballpark in under a minute.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/calculator');
   }, []);
 

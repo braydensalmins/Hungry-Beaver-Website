@@ -63,21 +63,21 @@ export const MunicipalPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Municipal Stump Removal | Hungry Beaver Stump Grinding';
+    document.title = 'Municipal Stump Grinding Phoenix AZ | Hungry Beaver';
     let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (!meta) {
       meta = document.createElement('meta');
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.content = 'Municipal stump removal for city parks, public works, school districts, and utility districts across the Greater Phoenix Valley. Fully insured, COI available. Call 480-283-4560.';
+    meta.content = 'Reliable stump grinding for cities, parks, and public spaces across the Phoenix Valley. Licensed, insured, and equipped for high-volume municipal projects.';
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/municipal');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Municipal Stump Removal | Hungry Beaver Stump Grinding');
-    if (ogDesc) ogDesc.setAttribute('content', 'Municipal stump removal for city parks, public works, school districts, and utility districts across the Greater Phoenix Valley. Fully insured, COI available. Call 480-283-4560.');
+    if (ogTitle) ogTitle.setAttribute('content', 'Municipal Stump Grinding Phoenix AZ | Hungry Beaver');
+    if (ogDesc) ogDesc.setAttribute('content', 'Reliable stump grinding for cities, parks, and public spaces across the Phoenix Valley. Licensed, insured, and equipped for high-volume municipal projects.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/municipal');
   }, []);
 

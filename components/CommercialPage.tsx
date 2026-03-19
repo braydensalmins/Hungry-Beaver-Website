@@ -63,21 +63,21 @@ export const CommercialPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Commercial Stump Grinding | Hungry Beaver Stump Grinding';
+    document.title = 'Commercial Stump Grinding Phoenix AZ | Hungry Beaver';
     let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (!meta) {
       meta = document.createElement('meta');
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.content = 'Commercial stump grinding for HOAs, property managers, landscaping contractors, and developers across the Greater Phoenix Valley. Volume discounts available. Call 480-283-4560.';
+    meta.content = 'Stump grinding for commercial properties in Phoenix. Minimize downtime, maximize curb appeal. Bonded, insured, and built for bigger jobs.';
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/commercial');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Commercial Stump Grinding | Hungry Beaver Stump Grinding');
-    if (ogDesc) ogDesc.setAttribute('content', 'Commercial stump grinding for HOAs, property managers, landscaping contractors, and developers across the Greater Phoenix Valley. Volume discounts available. Call 480-283-4560.');
+    if (ogTitle) ogTitle.setAttribute('content', 'Commercial Stump Grinding Phoenix AZ | Hungry Beaver');
+    if (ogDesc) ogDesc.setAttribute('content', 'Stump grinding for commercial properties in Phoenix. Minimize downtime, maximize curb appeal. Bonded, insured, and built for bigger jobs.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/commercial');
   }, []);
 

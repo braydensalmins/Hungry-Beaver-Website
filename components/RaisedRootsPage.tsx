@@ -63,21 +63,21 @@ export const RaisedRootsPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = 'Raised Root Grinding | Hungry Beaver Stump Grinding';
+    document.title = 'Raised Root Grinding Phoenix AZ | Hungry Beaver';
     let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
     if (!meta) {
       meta = document.createElement('meta');
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.content = 'Raised root grinding across the Greater Phoenix Valley. We grind surface roots flush to grade — no excavation, no lawn damage. Protects mowers, hardscape, and irrigation. Call 480-283-4560.';
+    meta.content = 'Raised roots cracking your sidewalk or driveway? We grind surface roots fast and clean. Serving Phoenix, Scottsdale, Chandler & the East Valley.';
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.setAttribute('href', 'https://hungrybeaverstumpgrinding.com/services/raised-roots');
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogTitle) ogTitle.setAttribute('content', 'Raised Root Grinding | Hungry Beaver Stump Grinding');
-    if (ogDesc) ogDesc.setAttribute('content', 'Raised root grinding across the Greater Phoenix Valley. We grind surface roots flush to grade — no excavation, no lawn damage. Protects mowers, hardscape, and irrigation. Call 480-283-4560.');
+    if (ogTitle) ogTitle.setAttribute('content', 'Raised Root Grinding Phoenix AZ | Hungry Beaver');
+    if (ogDesc) ogDesc.setAttribute('content', 'Raised roots cracking your sidewalk or driveway? We grind surface roots fast and clean. Serving Phoenix, Scottsdale, Chandler & the East Valley.');
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/services/raised-roots');
   }, []);
 
