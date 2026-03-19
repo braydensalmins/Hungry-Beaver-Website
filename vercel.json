@@ -1,0 +1,4 @@
+{
+  "buildCommand": "npm run prerender",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
