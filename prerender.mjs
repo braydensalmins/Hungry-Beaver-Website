@@ -51,6 +51,10 @@ const PAGE_META = {
     title: 'Stump Grinding Service Areas | Phoenix Valley | Hungry Beaver',
     description: 'Hungry Beaver serves the entire Phoenix Valley — Phoenix, Scottsdale, Chandler, Gilbert, Mesa, Glendale & more. Find out if we serve your area.',
   },
+  '/about': {
+    title: 'About Us | Hungry Beaver Stump Grinding Phoenix AZ',
+    description: "Hungry Beaver Stump Grinding is a family-owned stump grinding company serving the Phoenix Valley. Learn our story and why we're the Valley's stump specialists.",
+  },
   '/services/residential': {
     title: 'Residential Stump Grinding Phoenix AZ | Hungry Beaver',
     description: 'Get rid of that backyard stump for good. Hungry Beaver specializes in residential stump grinding across Phoenix & the Valley. Fast quotes, clean results.',
@@ -77,6 +81,7 @@ const ROUTES = [
   '/quote',
   '/contact',
   '/service-areas',
+  '/about',
   '/services/residential',
   '/services/commercial',
   '/services/municipal',

@@ -8,6 +8,7 @@ import { CalculatorPage } from './components/CalculatorPage';
 import { QuotePage } from './components/QuotePage';
 import { ContactPage } from './components/ContactPage';
 import { ServiceAreasPage } from './components/ServiceAreasPage';
+import { AboutPage } from './components/AboutPage';
 import { ResidentialPage } from './components/ResidentialPage';
 import { CommercialPage } from './components/CommercialPage';
 import { MunicipalPage } from './components/MunicipalPage';
@@ -35,6 +36,7 @@ function App() {
             <Route path="/quote" element={<QuotePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="/services/residential" element={<ResidentialPage />} />
             <Route path="/services/commercial" element={<CommercialPage />} />
             <Route path="/services/municipal" element={<MunicipalPage />} />
