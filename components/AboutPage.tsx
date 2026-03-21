@@ -5,7 +5,7 @@ import { PHONE_NUMBER } from '../constants';
 const TRUST_CARDS = [
   { heading: 'Locally Owned', sub: '& Family Operated' },
   { heading: 'Commercial-Grade', sub: 'Equipment on Every Job' },
-  { heading: 'Licensed & Insured', sub: 'Phoenix Valley' },
+  { heading: 'Insured & Bonded', sub: 'Phoenix Valley' },
 ];
 
 export const AboutPage: React.FC = () => {
