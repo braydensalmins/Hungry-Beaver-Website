@@ -13,6 +13,7 @@ import { ResidentialPage } from './components/ResidentialPage';
 import { CommercialPage } from './components/CommercialPage';
 import { MunicipalPage } from './components/MunicipalPage';
 import { RaisedRootsPage } from './components/RaisedRootsPage';
+import { StumpGrindingCostPage } from './components/StumpGrindingCostPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { BeaverBot } from './components/BeaverBot';
@@ -41,6 +42,7 @@ function App() {
             <Route path="/services/commercial" element={<CommercialPage />} />
             <Route path="/services/municipal" element={<MunicipalPage />} />
             <Route path="/services/raised-roots" element={<RaisedRootsPage />} />
+            <Route path="/stump-grinding-cost-phoenix" element={<StumpGrindingCostPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

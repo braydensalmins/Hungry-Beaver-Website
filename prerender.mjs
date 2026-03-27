@@ -71,6 +71,10 @@ const PAGE_META = {
     title: 'Raised Root Grinding Phoenix AZ | Hungry Beaver',
     description: 'Raised roots cracking your sidewalk or driveway? We grind surface roots fast and clean. Serving Phoenix, Scottsdale, Chandler & the East Valley.',
   },
+  '/stump-grinding-cost-phoenix': {
+    title: 'Stump Grinding Cost Phoenix AZ (2026) | Hungry Beaver',
+    description: 'Real 2026 Phoenix stump grinding prices. See what affects cost, why Phoenix is different, and how to get a firm quote in minutes. No vague estimates.',
+  },
 };
 
 const ROUTES = [
@@ -86,6 +90,7 @@ const ROUTES = [
   '/services/commercial',
   '/services/municipal',
   '/services/raised-roots',
+  '/stump-grinding-cost-phoenix',
 ];
 
 function startPreviewServer() {
