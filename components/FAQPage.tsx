@@ -34,6 +34,7 @@ export const FAQPage: React.FC = () => {
     if (ogTitle) ogTitle.setAttribute('content', 'Stump Grinding FAQs | Hungry Beaver Phoenix AZ');
     if (ogDesc) ogDesc.setAttribute('content', "Got questions about stump grinding in Phoenix? We answer the most common ones — cost, timeline, what's left behind, and more. No fluff, just answers.");
     if (ogUrl) ogUrl.setAttribute('content', 'https://hungrybeaverstumpgrinding.com/faq');
+    document.getElementById('faq-schema')?.remove();
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'faq-schema';

@@ -165,6 +165,7 @@ export const StumpGrindingCostPage: React.FC = () => {
     if (ogDesc) ogDesc.setAttribute('content', PAGE_DESCRIPTION);
     if (ogUrl) ogUrl.setAttribute('content', PAGE_URL);
 
+    document.getElementById('faq-schema-cost-guide')?.remove();
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
     schemaScript.id = 'faq-schema-cost-guide';
