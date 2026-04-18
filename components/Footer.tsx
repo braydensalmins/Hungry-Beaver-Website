@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-beaver-dark text-white py-12 border-t-8 border-beaver-orange">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div>
             <h3 className="text-2xl font-display font-bold text-beaver-orange mb-4">{COMPANY_NAME.toUpperCase()}</h3>
             <p className="text-gray-400 text-sm">
@@ -17,7 +17,6 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold uppercase mb-4 text-gray-200">Quick Links</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link to="/#services" className="hover:text-beaver-orange">Services</Link></li>
               <li><Link to="/calculator" className="hover:text-beaver-orange">Pricing</Link></li>
               <li><Link to="/gallery" className="hover:text-beaver-orange">Gallery</Link></li>
               <li><Link to="/faq" className="hover:text-beaver-orange">FAQ</Link></li>
@@ -25,6 +24,15 @@ export const Footer: React.FC = () => {
               <li><Link to="/contact" className="hover:text-beaver-orange">Contact Us</Link></li>
               <li><Link to="/quote" className="hover:text-beaver-orange">Get a Quote</Link></li>
               <li><Link to="/stump-grinding-cost-phoenix" className="hover:text-beaver-orange">Pricing Guide</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold uppercase mb-4 text-gray-200">Services</h4>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li><Link to="/services/residential" className="hover:text-beaver-orange">Residential</Link></li>
+              <li><Link to="/services/commercial" className="hover:text-beaver-orange">Commercial</Link></li>
+              <li><Link to="/services/municipal" className="hover:text-beaver-orange">Municipal</Link></li>
+              <li><Link to="/services/raised-roots" className="hover:text-beaver-orange">Raised Roots</Link></li>
             </ul>
           </div>
           <div>
