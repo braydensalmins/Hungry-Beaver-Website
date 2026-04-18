@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
               <CheckCircle2 size={18} className="text-beaver-orange" /> Same-Day Estimates
             </div>
             <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-beaver-orange" /> Serving 14+ Valley Cities
+              <MapPin size={18} className="text-beaver-orange" /> Serving 15+ Valley Cities
             </div>
           </div>
         </div>

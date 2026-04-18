@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     question: "Is there a minimum charge?",
-    answer: "Yes, we have a $150 minimum service fee. This covers our travel, fuel, and equipment setup time for smaller jobs."
+    answer: "Yes, we have a $200 minimum service fee. This covers our travel, fuel, and equipment setup time for smaller jobs."
   },
   {
     question: "How long does stump grinding take?",

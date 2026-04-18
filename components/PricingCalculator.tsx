@@ -30,8 +30,8 @@ export const PricingCalculator: React.FC = () => {
   };
 
   const stdEstimateRaw = calculateEstimate(7);
-  const stdTotal = Math.max(stdEstimateRaw, 150);
-  const fullTotal = Math.max(calculateEstimate(10), 150);
+  const stdTotal = Math.max(stdEstimateRaw, 200);
+  const fullTotal = Math.max(calculateEstimate(10), 200);
   const hasEstimate = diameter && typeof diameter === 'number' && diameter > 0;
 
   const handleContactChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,8 +60,8 @@ export const PricingCalculator: React.FC = () => {
             zip: contactInfo.zip,
             diameter: diameter,
             stump_count: stumpCount,
-            std_estimate: stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`,
-            full_estimate: stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`,
+            std_estimate: stdEstimateRaw < 200 ? 'Minimum: $200' : `$${stdTotal.toFixed(0)}`,
+            full_estimate: stdEstimateRaw < 200 ? 'Minimum: $200' : `$${fullTotal.toFixed(0)}`,
           },
           EMAILJS_PUBLIC_KEY
         ),
@@ -73,7 +73,7 @@ export const PricingCalculator: React.FC = () => {
             from_name: `${contactInfo.firstName} ${contactInfo.lastName}`,
             phone: contactInfo.phone,
             address: `Zip: ${contactInfo.zip}`,
-            message: `Estimate request from calculator.\nEmail: ${contactInfo.email}\nStump width: ${diameter}"\nStump count: ${stumpCount}\nStandard estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${stdTotal.toFixed(0)}`}\nFull service estimate: ${stdEstimateRaw < 150 ? 'Minimum: $150' : `$${fullTotal.toFixed(0)}`}`,
+            message: `Estimate request from calculator.\nEmail: ${contactInfo.email}\nStump width: ${diameter}"\nStump count: ${stumpCount}\nStandard estimate: ${stdEstimateRaw < 200 ? 'Minimum: $200' : `$${stdTotal.toFixed(0)}`}\nFull service estimate: ${stdEstimateRaw < 200 ? 'Minimum: $200' : `$${fullTotal.toFixed(0)}`}`,
           },
           EMAILJS_PUBLIC_KEY
         ),

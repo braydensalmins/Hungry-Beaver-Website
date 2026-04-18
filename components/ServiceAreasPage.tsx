@@ -23,7 +23,7 @@ export const ServiceAreasPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-display font-bold uppercase mb-4">Service Areas</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Proudly serving 14+ cities across the Greater Phoenix Valley.
+            Proudly serving 15+ cities across the Greater Phoenix Valley.
           </p>
         </div>
       </div>

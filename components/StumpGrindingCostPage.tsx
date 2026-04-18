@@ -10,8 +10,8 @@ const PAGE_DESCRIPTION =
 const PAGE_URL = 'https://hungrybeaverstumpgrinding.com/stump-grinding-cost-phoenix';
 
 const PRICE_ROWS = [
-  { size: 'Small — up to 10 inches', cost: '~$150 (minimum)' },
-  { size: 'Medium — 10 to 20 inches', cost: '$150–$300' },
+  { size: 'Small — up to 10 inches', cost: '~$200 (minimum)' },
+  { size: 'Medium — 10 to 20 inches', cost: '$200–$300' },
   { size: 'Large — 20 to 30 inches', cost: '$200–$500' },
   { size: 'Extra Large — 30 inches+', cost: 'Quote required' },
 ];
@@ -234,7 +234,7 @@ export const StumpGrindingCostPage: React.FC = () => {
 
           <div className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-gray-400 uppercase tracking-wider">
             <div className="flex items-center gap-2">
-              <CheckCircle2 size={18} className="text-beaver-orange" /> $150 Minimum
+              <CheckCircle2 size={18} className="text-beaver-orange" /> $200 Minimum
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 size={18} className="text-beaver-orange" /> Firm Quotes by Text
@@ -332,22 +332,22 @@ export const StumpGrindingCostPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Section 5: $150 Minimum ── */}
+      {/* ── Section 5: $200 Minimum ── */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Minimum Service Fee</p>
             <h2 className="text-4xl md:text-5xl font-display font-bold text-beaver-dark">
-              THE $150 MINIMUM — WHAT IT COVERS
+              THE $200 MINIMUM — WHAT IT COVERS
             </h2>
           </div>
 
           <div className="bg-white border-t-4 border-beaver-orange shadow-sm p-8 md:p-12">
             <p className="text-gray-600 leading-relaxed mb-5">
-              We have a $150 minimum service fee on all jobs. This covers our drive time, fuel, trailer, equipment, and cleanup regardless of stump size. A tiny 6-inch stump costs the same as a 10-inch stump — the minimum is the floor.
+              We have a $200 minimum service fee on all jobs. This covers our drive time, fuel, trailer, equipment, and cleanup regardless of stump size. A tiny 6-inch stump costs the same as a 10-inch stump — the minimum is the floor.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              For most Phoenix homeowners, the $150 minimum covers small to medium stumps completely.
+              For most Phoenix homeowners, the $200 minimum covers small to medium stumps completely.
             </p>
           </div>
         </div>

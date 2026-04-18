@@ -49,7 +49,7 @@ export const About: React.FC = () => {
                 <div className="text-sm text-gray-500 uppercase font-bold mt-1">Stumps Ground</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-display font-bold text-beaver-orange">14+</div>
+                <div className="text-3xl font-display font-bold text-beaver-orange">15+</div>
                 <div className="text-sm text-gray-500 uppercase font-bold mt-1">Valley Cities</div>
               </div>
             </div>

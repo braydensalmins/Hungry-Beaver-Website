@@ -27,7 +27,7 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     name: "Standard Grind",
     price: "$7.00 / inch",
-    features: ["Grind 6-8\" below grade", "Mulch left in hole", "No cleanup included", "$150 Minimum"],
+    features: ["Grind 6-8\" below grade", "Mulch left in hole", "No cleanup included", "$200 Minimum"],
   },
   {
     name: "Full Service",
@@ -39,13 +39,13 @@ export const PRICING_TIERS: PricingTier[] = [
 export const PRICING_ROWS: PricingRow[] = [
   {
     size: 'Small – Up to 10"',
-    range: '~$150',
-    factors: ['$150 minimum applies', 'Gate / yard access', 'Grinding depth'],
+    range: '~$200 (minimum)',
+    factors: ['$200 minimum applies', 'Gate / yard access', 'Grinding depth'],
     standard: 'Commercial grinder on every job — not a rental',
   },
   {
     size: 'Medium – 10" to 20"',
-    range: '$150 – $300',
+    range: '$200 – $300',
     factors: ['Surface root spread', 'Stump age & hardness', 'Site access'],
     standard: 'Industrial-grade machine for clean, fast cuts',
   },
@@ -76,8 +76,8 @@ Your personality is friendly, blue-collar, professional, and reliable. You are h
 You answer questions about stump grinding, pricing, and the process.
 Key Information:
 - We are based in Phoenix, AZ.
-- Pricing starts at $150 for small stumps (up to 10"), $150–$300 for medium (10"–20"), $200–$450 for large (20"–30"), and a custom quote for extra large (30"+).
-- There is a $150 minimum service fee.
+- Pricing starts at $200 for small stumps (up to 10"), $200–$300 for medium (10"–20"), $200–$450 for large (20"–30"), and a custom quote for extra large (30"+).
+- There is a $200 minimum service fee.
 - We offer grinding, root pruning, and cleanup.
 - Measuring: Measure the widest point where the stump meets the ground, including roots.
 - We are fully insured and safety-focused.
