@@ -154,6 +154,14 @@ async function prerenderRoute(page, route) {
   await page.addStyleTag({
     content: '.opacity-0 { opacity: 1 !important; } .translate-y-12 { transform: none !important; }'
   });
+
+  // Remove hidden class from CSS-only nav dropdowns so Google sees the links in static HTML.
+  await page.evaluate(() => {
+    document.querySelectorAll('nav div[class*="group-hover:block"]').forEach(el => {
+      el.classList.remove('hidden');
+    });
+  });
+
   await new Promise(r => setTimeout(r, 300));
 
   // Hardcode the correct meta tags for this route so Google sees them without JS

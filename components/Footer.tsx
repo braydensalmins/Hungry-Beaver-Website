@@ -29,10 +29,10 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold uppercase mb-4 text-gray-200">Services</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link to="/services/residential" className="hover:text-beaver-orange">Residential</Link></li>
-              <li><Link to="/services/commercial" className="hover:text-beaver-orange">Commercial</Link></li>
-              <li><Link to="/services/municipal" className="hover:text-beaver-orange">Municipal</Link></li>
-              <li><Link to="/services/raised-roots" className="hover:text-beaver-orange">Raised Roots</Link></li>
+              <li><a href="/services/residential" className="hover:text-beaver-orange">Residential</a></li>
+              <li><a href="/services/commercial" className="hover:text-beaver-orange">Commercial</a></li>
+              <li><a href="/services/municipal" className="hover:text-beaver-orange">Municipal</a></li>
+              <li><a href="/services/raised-roots" className="hover:text-beaver-orange">Raised Roots</a></li>
             </ul>
           </div>
           <div>
