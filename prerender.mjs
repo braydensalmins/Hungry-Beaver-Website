@@ -186,6 +186,31 @@ async function prerenderRoute(page, route) {
   console.log(`  Saved → ${filePath.replace(__dirname + '/', '')}`);
 }
 
+// Render a single route with up to `maxAttempts` retries.
+// Creates and destroys a fresh page each attempt to avoid state bleed between routes.
+async function renderWithRetry(browser, route, maxAttempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1280, height: 800 });
+    page.on('console', () => {});
+    page.on('pageerror', () => {});
+    try {
+      await prerenderRoute(page, route);
+      return; // success
+    } catch (err) {
+      lastError = err;
+      console.error(`  [attempt ${attempt}/${maxAttempts}] ${route} failed: ${err.message}`);
+      if (attempt < maxAttempts) {
+        await new Promise(r => setTimeout(r, 2000 * attempt));
+      }
+    } finally {
+      await page.close().catch(() => {});
+    }
+  }
+  throw lastError;
+}
+
 // On Linux (Vercel/CI) use @sparticuz/chromium; on macOS use system Chrome.
 async function getBrowserOptions() {
   if (process.platform === 'linux') {
@@ -210,25 +235,30 @@ async function main() {
   console.log(`Preview server running on port ${PREVIEW_PORT}\n`);
 
   const browser = await puppeteer.launch(await getBrowserOptions());
+  const failed = [];
 
   try {
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1280, height: 800 });
-
-    // Suppress console noise from the page (BeaverBot API calls, analytics, etc.)
-    page.on('console', () => {});
-    page.on('pageerror', () => {});
-
-    console.log(`Prerendering ${ROUTES.length} routes...`);
+    console.log(`Prerendering ${ROUTES.length} routes...\n`);
     for (const route of ROUTES) {
-      await prerenderRoute(page, route);
+      try {
+        await renderWithRetry(browser, route);
+      } catch (err) {
+        console.error(`  FAILED after all retries: ${route} — ${err.message}`);
+        failed.push(route);
+      }
     }
-
-    console.log('\nDone. All routes prerendered.');
   } finally {
     await browser.close();
     server.kill();
   }
+
+  if (failed.length > 0) {
+    console.error(`\nPrerender FAILED for ${failed.length} route(s):`);
+    failed.forEach(r => console.error(`  - ${r}`));
+    process.exit(1);
+  }
+
+  console.log('\nDone. All routes prerendered successfully.');
 }
 
 main().catch((err) => {
