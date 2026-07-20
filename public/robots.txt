@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.hungrybeaver.com/sitemap.xml
+Sitemap: https://hungrybeaverstumpgrinding.com/sitemap.xml
