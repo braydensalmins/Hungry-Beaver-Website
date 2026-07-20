@@ -11,6 +11,7 @@ const pairs = [
   { before: '/before-5.jpeg', after: '/after-5.jpeg' },
   { before: '/before-6.jpeg', after: '/after-6.jpeg' },
   { before: '/before-7.jpeg', after: '/after-7.jpeg' },
+  { before: '/before-8.jpeg', after: '/after-8.jpeg' },
 ];
 
 export const Gallery: React.FC = () => {
