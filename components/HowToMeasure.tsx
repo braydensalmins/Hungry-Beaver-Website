@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Ruler, Check, X, Calculator } from 'lucide-react';
 import { Button } from './Button';
 import { PHONE_NUMBER } from '../constants';
@@ -10,7 +9,6 @@ interface Props {
 }
 
 export const HowToMeasure: React.FC<Props> = ({ showCalculatorCTA = false }) => {
-  const navigate = useNavigate();
 
   return (
     <section id="measure" className="py-20 bg-gray-900 text-white border-t border-gray-800 overflow-hidden">
@@ -46,7 +44,7 @@ export const HowToMeasure: React.FC<Props> = ({ showCalculatorCTA = false }) => 
 
             <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
               {showCalculatorCTA && (
-                <Button variant="primary" onClick={() => navigate('/calculator')}
+                <Button variant="primary" to="/calculator"
                   className="flex items-center gap-2">
                   <Calculator size={18} />
                   Calculate Your Cost Now

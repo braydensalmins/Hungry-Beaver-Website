@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { Button } from './Button';
 
@@ -15,7 +14,6 @@ const pairs = [
 ];
 
 export const Gallery: React.FC = () => {
-  const navigate = useNavigate();
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   useEffect(() => {
@@ -50,7 +48,7 @@ export const Gallery: React.FC = () => {
         </div>
 
         <div className="text-center">
-          <Button variant="outline" onClick={() => navigate('/#contact')}>
+          <Button variant="outline" to="/#contact">
             Contact Us to See More Work
           </Button>
         </div>

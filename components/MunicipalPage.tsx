@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
-import { PRICING_ROWS, PHONE_NUMBER } from '../constants';
+import { PHONE_NUMBER } from '../constants';
 import {
   CheckCircle2, ShieldCheck, MessageSquare,
   ClipboardList, Hammer, Leaf, FileText,
   TreePine, Landmark, GraduationCap, Zap, Phone,
 } from 'lucide-react';
-import { HowToMeasure } from './HowToMeasure';
 
 const WHO_WE_SERVE = [
   {
@@ -60,7 +58,6 @@ const STEPS = [
 ];
 
 export const MunicipalPage: React.FC = () => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Municipal Stump Grinding Phoenix AZ | Hungry Beaver';
@@ -116,7 +113,7 @@ export const MunicipalPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/contact')}
+              to="/quote"
               className="shadow-lg shadow-orange-900/20 flex items-center gap-2"
             >
               <Phone size={20} />
@@ -224,7 +221,7 @@ export const MunicipalPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/contact')}
+              to="/quote"
               className="flex items-center gap-2"
             >
               <Phone size={20} />
@@ -244,56 +241,18 @@ export const MunicipalPage: React.FC = () => {
 
       {/* ── Section 5: Pricing ── */}
       <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Transparent Pricing</p>
-            <h2 className="text-4xl font-display font-bold text-beaver-dark">NO HIDDEN FEES. JUST HONEST WORK.</h2>
-            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-              Use this as a ballpark. Municipal and right-of-way jobs are always confirmed with a firm on-site quote.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto mb-4 shadow-sm border border-gray-200">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-beaver-dark text-white uppercase text-xs tracking-wider">
-                  <th className="px-5 py-4 font-bold w-1/4">Stump Size</th>
-                  <th className="px-5 py-4 font-bold w-1/5">Estimated Cost</th>
-                  <th className="px-5 py-4 font-bold w-1/3">Major Cost Factors</th>
-                  <th className="px-5 py-4 font-bold">The Hungry Beaver Standard</th>
-                </tr>
-              </thead>
-              <tbody>
-                {PRICING_ROWS.map((row, i) => (
-                  <tr key={row.size} className={i % 2 === 0 ? 'bg-white' : 'bg-beaver-cream'}>
-                    <td className="px-5 py-5 font-bold text-beaver-dark text-sm align-top">{row.size}</td>
-                    <td className="px-5 py-5 align-top">
-                      <span className="text-beaver-orange font-bold text-lg">{row.range}</span>
-                    </td>
-                    <td className="px-5 py-5 align-top">
-                      <ul className="space-y-1">
-                        {row.factors.map((f) => (
-                          <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                            <span className="mt-1.5 w-1.5 h-1.5 bg-beaver-orange rounded-full flex-shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td className="px-5 py-5 align-top text-sm text-gray-700 italic">{row.standard}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-sm text-gray-400 italic mb-14 px-1">
-            *Pricing varies based on access, depth, and site conditions. Municipal and right-of-way projects are quoted on-site.
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Pricing</p>
+          <h2 className="text-4xl font-display font-bold text-beaver-dark mb-6">EVERY PROJECT GETS A FIRM QUOTE</h2>
+          <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+            Municipal and right-of-way jobs are always confirmed with a firm on-site quote. Price depends on how many stumps are on the list, their size at ground level, site access, grinding depth, and any scheduling windows we need to work within.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="primary" size="lg" to="/quote">Request a Municipal Quote</Button>
+            <Button variant="outline" size="lg" to="/calculator">See Standard Rates</Button>
+          </div>
         </div>
       </section>
-
-      <HowToMeasure showCalculatorCTA />
     </>
   );
 };

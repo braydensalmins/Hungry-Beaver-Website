@@ -1,11 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
 import { CheckCircle2, ShieldCheck, MapPin, MessageSquare } from 'lucide-react';
 import { PHONE_NUMBER } from '../constants';
 
 export const Hero: React.FC = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="relative bg-beaver-dark text-white overflow-hidden">
@@ -38,7 +36,7 @@ export const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Button variant="primary" size="lg" className="w-full sm:w-auto shadow-lg shadow-orange-900/20" onClick={() => navigate('/quote')}>
+            <Button variant="primary" size="lg" className="w-full sm:w-auto shadow-lg shadow-orange-900/20" to="/quote">
               Get a Free Quote
             </Button>
             <Button variant="outline" size="lg" className="w-full sm:w-auto text-white border-white hover:bg-white hover:text-beaver-dark" onClick={() => window.location.href = `sms:${PHONE_NUMBER}`}>

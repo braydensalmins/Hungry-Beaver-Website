@@ -1,4 +1,8 @@
 {
   "buildCommand": "npm run prerender",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/contact", "destination": "/quote", "permanent": true }
+  ]
 }

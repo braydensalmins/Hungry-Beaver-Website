@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { Button } from './Button';
 import { Ruler, Info, Mail } from 'lucide-react';
@@ -16,7 +15,6 @@ const formatPhone = (value: string) => {
 };
 
 export const PricingCalculator: React.FC = () => {
-  const navigate = useNavigate();
   const [diameter, setDiameter] = useState<number | ''>('');
   const [stumpCount, setStumpCount] = useState<number>(1);
   const [contactInfo, setContactInfo] = useState({
@@ -184,7 +182,7 @@ export const PricingCalculator: React.FC = () => {
                 </div>
               )}
 
-              <Button variant="primary" className="w-full mt-6" onClick={() => navigate('/quote')}>
+              <Button variant="primary" className="w-full mt-6" to="/quote">
                 Request Official Quote
               </Button>
             </div>

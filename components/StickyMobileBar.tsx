@@ -1,10 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Phone, MessageSquare, FileText } from 'lucide-react';
 import { PHONE_NUMBER } from '../constants';
 
 export const StickyMobileBar: React.FC = () => {
-  const navigate = useNavigate();
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-beaver-dark border-t border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.3)] pb-safe">
       <div className="grid grid-cols-3 h-16">
@@ -24,13 +23,13 @@ export const StickyMobileBar: React.FC = () => {
           <span className="text-[10px] font-bold uppercase tracking-wider">Call</span>
         </a>
 
-        <button
-          onClick={() => navigate('/contact')}
+        <Link
+          to="/quote"
           className="flex flex-col items-center justify-center gap-1 bg-beaver-orange text-beaver-dark hover:bg-orange-600 transition-colors"
         >
           <FileText size={20} />
           <span className="text-[10px] font-bold uppercase tracking-wider">Get Quote</span>
-        </button>
+        </Link>
       </div>
       {/* Safe area spacer for iPhone home bar */}
       <div className="h-safe bg-beaver-dark"></div>

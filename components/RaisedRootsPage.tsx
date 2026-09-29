@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
-import { PRICING_ROWS, PHONE_NUMBER } from '../constants';
+import { PHONE_NUMBER } from '../constants';
 import {
   CheckCircle2, ShieldCheck, MessageSquare,
   Search, Target, Hammer, Leaf,
   Wrench, AlertTriangle, SquareSlash, Droplets, Phone,
 } from 'lucide-react';
-import { HowToMeasure } from './HowToMeasure';
 
 const PROBLEMS = [
   {
@@ -60,7 +58,6 @@ const STEPS = [
 ];
 
 export const RaisedRootsPage: React.FC = () => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Raised Root Grinding Phoenix AZ | Hungry Beaver';
@@ -116,7 +113,7 @@ export const RaisedRootsPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/contact')}
+              to="/quote"
               className="shadow-lg shadow-orange-900/20 flex items-center gap-2"
             >
               <Phone size={20} />
@@ -219,7 +216,7 @@ export const RaisedRootsPage: React.FC = () => {
               variant="outline"
               size="lg"
               className="text-white border-white hover:bg-white hover:text-beaver-dark"
-              onClick={() => navigate('/contact')}
+              to="/quote"
             >
               Contact Us
             </Button>
@@ -227,58 +224,7 @@ export const RaisedRootsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Section 5: Pricing ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Pricing Reference</p>
-            <h2 className="text-4xl font-display font-bold text-beaver-dark">STUMP GRINDING RATES</h2>
-            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-              These rates apply to standard stump grinding. Raised root jobs are priced separately based on root spread — contact us for a custom quote.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto mb-4 shadow-sm border border-gray-200">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-beaver-dark text-white uppercase text-xs tracking-wider">
-                  <th className="px-5 py-4 font-bold w-1/4">Stump Size</th>
-                  <th className="px-5 py-4 font-bold w-1/5">Estimated Cost</th>
-                  <th className="px-5 py-4 font-bold w-1/3">Major Cost Factors</th>
-                  <th className="px-5 py-4 font-bold">The Hungry Beaver Standard</th>
-                </tr>
-              </thead>
-              <tbody>
-                {PRICING_ROWS.map((row, i) => (
-                  <tr key={row.size} className={i % 2 === 0 ? 'bg-white' : 'bg-beaver-cream'}>
-                    <td className="px-5 py-5 font-bold text-beaver-dark text-sm align-top">{row.size}</td>
-                    <td className="px-5 py-5 align-top">
-                      <span className="text-beaver-orange font-bold text-lg">{row.range}</span>
-                    </td>
-                    <td className="px-5 py-5 align-top">
-                      <ul className="space-y-1">
-                        {row.factors.map((f) => (
-                          <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                            <span className="mt-1.5 w-1.5 h-1.5 bg-beaver-orange rounded-full flex-shrink-0" />
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </td>
-                    <td className="px-5 py-5 align-top text-sm text-gray-700 italic">{row.standard}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="text-sm text-gray-400 italic mb-14 px-1">
-            *Raised root grinding is priced by root spread and complexity, not stump diameter. Text us a photo for the most accurate estimate.
-          </p>
-        </div>
-      </section>
-
-      <HowToMeasure />
+      
     </>
   );
 };

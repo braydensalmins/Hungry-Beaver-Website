@@ -1,12 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { GalleryPage } from './components/GalleryPage';
 import { FAQPage } from './components/FAQPage';
 import { CalculatorPage } from './components/CalculatorPage';
 import { QuotePage } from './components/QuotePage';
-import { ContactPage } from './components/ContactPage';
 import { ServiceAreasPage } from './components/ServiceAreasPage';
 import { AboutPage } from './components/AboutPage';
 import { ResidentialPage } from './components/ResidentialPage';
@@ -35,7 +34,7 @@ function App() {
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/calculator" element={<CalculatorPage />} />
             <Route path="/quote" element={<QuotePage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact" element={<Navigate to="/quote" replace />} />
             <Route path="/service-areas" element={<ServiceAreasPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services/residential" element={<ResidentialPage />} />

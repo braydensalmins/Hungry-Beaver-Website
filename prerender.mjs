@@ -43,10 +43,6 @@ const PAGE_META = {
     title: 'Get a Free Stump Grinding Quote | Hungry Beaver Phoenix',
     description: 'Request a free, no-obligation stump grinding quote anywhere in the Phoenix Valley. Fast response, upfront pricing, no surprises.',
   },
-  '/contact': {
-    title: 'Get a Free Stump Grinding Quote | Hungry Beaver Phoenix',
-    description: 'Ready to get rid of that stump? Contact Hungry Beaver Stump Grinding for a free, no-obligation quote anywhere in the Phoenix Valley.',
-  },
   '/service-areas': {
     title: 'Stump Grinding Service Areas | Phoenix Valley | Hungry Beaver',
     description: 'Hungry Beaver serves the entire Phoenix Valley — Phoenix, Scottsdale, Chandler, Gilbert, Mesa, Glendale & more. Find out if we serve your area.',
@@ -83,7 +79,6 @@ const ROUTES = [
   '/faq',
   '/calculator',
   '/quote',
-  '/contact',
   '/service-areas',
   '/about',
   '/services/residential',

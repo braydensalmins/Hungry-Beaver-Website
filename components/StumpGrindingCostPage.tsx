@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
 import { PHONE_NUMBER } from '../constants';
 import { MapPin, BookOpen, CheckCircle2, MessageSquare } from 'lucide-react';
@@ -142,7 +141,6 @@ const FAQ_SCHEMA = {
 };
 
 export const StumpGrindingCostPage: React.FC = () => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = PAGE_TITLE;
@@ -217,7 +215,7 @@ export const StumpGrindingCostPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/quote')}
+              to="/quote"
               className="shadow-lg shadow-orange-900/20"
             >
               Get a Free Quote
@@ -488,7 +486,7 @@ export const StumpGrindingCostPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/quote')}
+              to="/quote"
               className="shadow-lg shadow-orange-900/20"
             >
               Get a Free Quote

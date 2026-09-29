@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { PHONE_NUMBER } from '../constants';
 import { Button } from './Button';
@@ -15,7 +15,6 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Services', href: '/#services' },
@@ -24,7 +23,7 @@ export const Navbar: React.FC = () => {
     { name: 'About', href: '/about' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Service Areas', href: '/service-areas' },
-    { name: 'Contact Us', href: '/contact' },
+    { name: 'Contact Us', href: '/quote' },
   ];
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -37,10 +36,6 @@ export const Navbar: React.FC = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  };
-
-  const handleQuoteClick = () => {
-    navigate('/quote');
   };
 
   return (
@@ -128,7 +123,7 @@ export const Navbar: React.FC = () => {
                 {PHONE_NUMBER}
               </span>
             </a>
-            <Button variant="primary" size="sm" onClick={handleQuoteClick} className="font-display font-bold !text-white">
+            <Button variant="primary" size="sm" to="/quote" className="font-display font-bold !text-white">
               Get Quote
             </Button>
           </div>
@@ -197,10 +192,7 @@ export const Navbar: React.FC = () => {
               )
             )}
             <div className="pt-4">
-               <Button variant="primary" className="w-full justify-center" onClick={() => {
-                 setIsOpen(false);
-                 handleQuoteClick();
-               }}>
+               <Button variant="primary" className="w-full justify-center" to="/quote" onClick={() => setIsOpen(false)}>
                 Request Quote
               </Button>
             </div>

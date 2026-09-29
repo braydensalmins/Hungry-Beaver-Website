@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from './Button';
-import { PRICING_ROWS, PHONE_NUMBER } from '../constants';
+import { PHONE_NUMBER } from '../constants';
 import {
   CheckCircle2, ShieldCheck, MessageSquare,
   ClipboardList, Hammer, Leaf, Truck, Calculator,
+  DoorOpen, Droplets, Home, TreePine,
 } from 'lucide-react';
-import { HowToMeasure } from './HowToMeasure';
 
 const FAQ_ANSWER_PARAGRAPHS = [
   `When we arrive, we assess the stump, measure it at the widest point at ground level, and position our commercial grinder. The carbide-tipped cutting wheel works down through the wood in passes, grinding 6–8 inches below grade — deep enough to top-dress with topsoil and grow grass over.`,
@@ -56,8 +56,45 @@ const STEPS = [
   },
 ];
 
+const BACKYARD_DETAILS = [
+  {
+    Icon: DoorOpen,
+    name: 'Tight Gate Access',
+    description: "Our machine fits through a 36-inch gate, so we can reach most backyards without going over a wall or pulling fencing. Leave the gate unlocked and you don't need to be home.",
+  },
+  {
+    Icon: Droplets,
+    name: 'Irrigation & Utilities',
+    description: "We call 811 (Blue Stake) before every job so public utilities are marked. Private lines like sprinklers, drip tubing, and landscape lighting aren't covered by 811, so flag them for us and we'll work around them.",
+  },
+  {
+    Icon: Home,
+    name: 'HOA Requirements',
+    description: 'Need a stump gone to satisfy your HOA? We grind deep enough for re-seeding and can provide documentation of the completed work for your HOA records.',
+  },
+  {
+    Icon: TreePine,
+    name: 'Mesquite, Palo Verde & Ficus',
+    description: 'Mesquite and palo verde are some of the hardest woods around, and older mesquites and ficus often have surface roots spreading several feet from the base. We account for that in the quote upfront.',
+  },
+];
+
+const AFTER_GRIND = [
+  {
+    name: 'The Stump Is Gone Below Grade',
+    description: 'We grind 6–8 inches below ground level. The hole is filled with the wood chips from the grind, which settle over time and are good for the soil.',
+  },
+  {
+    name: 'Planting Grass or Sod',
+    description: 'Rake out some of the chips, top off the area with topsoil, then seed or lay sod. Grinding to 6–8 inches leaves plenty of depth for grass to take.',
+  },
+  {
+    name: 'Planting a New Tree in the Same Spot',
+    description: 'Tell us before the job. We can grind deeper on request so there is room for a new root ball (additional fees may apply).',
+  },
+];
+
 export const ResidentialPage: React.FC = () => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Residential Stump Grinding Phoenix AZ | Hungry Beaver';
@@ -118,7 +155,7 @@ export const ResidentialPage: React.FC = () => {
               <Button
                 variant="primary"
                 size="lg"
-                onClick={() => navigate('/calculator')}
+                to="/calculator"
                 className="shadow-lg shadow-orange-900/20 flex items-center gap-2"
               >
                 <Calculator size={20} />
@@ -192,62 +229,68 @@ export const ResidentialPage: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Section 4: Pricing ── */}
+        {/* ── Section 4: Backyard Jobs ── */}
         <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
-              <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Transparent Pricing</p>
-              <h2 className="text-4xl font-display font-bold text-beaver-dark">NO HIDDEN FEES. JUST HONEST WORK.</h2>
-              <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-                Use this guide to get a ballpark before you call. Every job is confirmed with a firm quote — no surprises on the invoice.
-              </p>
+              <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Residential Details</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-beaver-dark">
+                BUILT FOR PHOENIX BACKYARDS
+              </h2>
             </div>
 
-            {/* Pricing Table */}
-            <div className="overflow-x-auto mb-4 shadow-sm border border-gray-200">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-beaver-dark text-white uppercase text-xs tracking-wider">
-                    <th className="px-5 py-4 font-bold w-1/4">Stump Size</th>
-                    <th className="px-5 py-4 font-bold w-1/5">Estimated Cost</th>
-                    <th className="px-5 py-4 font-bold w-1/3">Major Cost Factors</th>
-                    <th className="px-5 py-4 font-bold">The Hungry Beaver Standard</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {PRICING_ROWS.map((row, i) => (
-                    <tr key={row.size} className={i % 2 === 0 ? 'bg-white' : 'bg-beaver-cream'}>
-                      <td className="px-5 py-5 font-bold text-beaver-dark text-sm align-top">{row.size}</td>
-                      <td className="px-5 py-5 align-top">
-                        <span className="text-beaver-orange font-bold text-lg">{row.range}</span>
-                      </td>
-                      <td className="px-5 py-5 align-top">
-                        <ul className="space-y-1">
-                          {row.factors.map((f) => (
-                            <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                              <span className="mt-1.5 w-1.5 h-1.5 bg-beaver-orange rounded-full flex-shrink-0" />
-                              {f}
-                            </li>
-                          ))}
-                        </ul>
-                      </td>
-                      <td className="px-5 py-5 align-top text-sm text-gray-700 italic">{row.standard}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {BACKYARD_DETAILS.map((item) => (
+                <div key={item.name} className="flex flex-col items-start p-6 border-t-4 border-beaver-orange bg-beaver-cream shadow-sm">
+                  <item.Icon size={32} className="text-beaver-orange mb-4" />
+                  <h3 className="text-lg font-display font-bold text-beaver-dark uppercase tracking-wide mb-2">{item.name}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              ))}
             </div>
-
-            {/* Disclaimer */}
-            <p className="text-sm text-gray-400 italic mb-14 px-1">
-              *Pricing varies based on access, depth, and site conditions. Final price determined at on-site or virtual quote.
-            </p>
-
           </div>
-
         </section>
 
-        <HowToMeasure showCalculatorCTA />
+        {/* ── Section 5: After the Grind ── */}
+        <section className="py-20 bg-beaver-dark text-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">After the Grind</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold">
+                WHAT YOUR YARD LOOKS LIKE AFTERWARD
+              </h2>
+            </div>
+            <div className="space-y-8">
+              {AFTER_GRIND.map((item) => (
+                <div key={item.name} className="border-l-4 border-beaver-orange pl-6">
+                  <h3 className="text-xl font-display font-bold uppercase tracking-wide mb-2">{item.name}</h3>
+                  <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 6: Pricing ── */}
+        <section className="py-20 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-beaver-orange font-bold tracking-widest uppercase mb-2">Pricing</p>
+            <h2 className="text-4xl font-display font-bold text-beaver-dark mb-6">WHAT A BACKYARD STUMP COSTS</h2>
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+              Residential jobs are priced by the stump's diameter measured at ground level, with a $200 minimum. Gate access, surface roots, and how deep you want us to grind can move the number. You get a firm price before we start — no surprises on the invoice.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button variant="primary" size="lg" to="/calculator" className="flex items-center gap-2">
+                <Calculator size={20} />
+                Calculate Your Cost
+              </Button>
+              <Button variant="outline" size="lg" to="/stump-grinding-cost-phoenix">Phoenix Pricing Guide</Button>
+            </div>
+            <Link to="/calculator#measure" className="text-beaver-orange font-bold hover:underline">
+              How to measure your stump correctly
+            </Link>
+          </div>
+        </section>
 
     </>
   );

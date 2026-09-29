@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Button } from './Button';
 import { PRICING_ROWS, PHONE_NUMBER } from '../constants';
 import {
@@ -60,7 +59,6 @@ const STEPS = [
 ];
 
 export const CommercialPage: React.FC = () => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = 'Commercial Stump Grinding Phoenix AZ | Hungry Beaver';
@@ -116,7 +114,7 @@ export const CommercialPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/contact')}
+              to="/quote"
               className="shadow-lg shadow-orange-900/20 flex items-center gap-2"
             >
               <Phone size={20} />
@@ -227,7 +225,7 @@ export const CommercialPage: React.FC = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => navigate('/contact')}
+              to="/quote"
               className="flex items-center gap-2"
             >
               <Phone size={20} />
