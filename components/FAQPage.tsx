@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { FAQ } from './FAQ';
 import { ScrollReveal } from './ScrollReveal';
+import { SERVICE_AREAS } from '../constants';
 
 const FAQ_SCHEMA = {
   "@context": "https://schema.org",
@@ -17,7 +18,7 @@ const FAQ_SCHEMA = {
     { "@type": "Question", "name": "Do you handle HOA-required stump removal?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We work with homeowners who need stumps removed to satisfy HOA requirements. We can grind deep enough to allow for re-seeding and provide documentation of the work completed for your HOA records." } },
     { "@type": "Question", "name": "Do you offer discounts for multiple stumps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Volume pricing is available. The more stumps you have, the better the per-stump rate. Just list all the stumps when you request a quote and we'll give you a combined price." } },
     { "@type": "Question", "name": "Do you work with landscapers and tree services?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we love working with other trade professionals. We're a reliable stump grinding subcontractor for tree services, landscapers, and property managers throughout the Valley." } },
-    { "@type": "Question", "name": "What cities do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We serve Phoenix, Scottsdale, Mesa, Tempe, Gilbert, Chandler, Glendale, Peoria, Surprise, Queen Creek, Ahwatukee, Avondale, Goodyear, and Paradise Valley." } }
+    { "@type": "Question", "name": "What cities do you serve?", "acceptedAnswer": { "@type": "Answer", "text": `We serve ${SERVICE_AREAS.slice(0, -1).join(', ')}, and ${SERVICE_AREAS[SERVICE_AREAS.length - 1]}.` } }
   ]
 };
 

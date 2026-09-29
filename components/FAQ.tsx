@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { SERVICE_AREAS } from '../constants';
 
 const FAQS = [
   {
@@ -48,7 +49,7 @@ const FAQS = [
   },
   {
     question: "What cities do you serve?",
-    answer: "We serve Phoenix, Scottsdale, Mesa, Tempe, Gilbert, Chandler, Glendale, Peoria, Surprise, Queen Creek, Ahwatukee, Avondale, Goodyear, and Paradise Valley. See our Service Areas page for more details."
+    answer: `We serve ${SERVICE_AREAS.slice(0, -1).join(', ')}, and ${SERVICE_AREAS[SERVICE_AREAS.length - 1]}. See our Service Areas page for more details.`
   }
 ];
 
